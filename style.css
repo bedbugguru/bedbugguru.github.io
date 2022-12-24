@@ -1,0 +1,133 @@
+p {
+    color: whitesmoke;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+  background: url("/Users/shanemalone/Desktop/bed bug guru/website/images/film.png") ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    height: 100%;
+    cursor: url("/Users/shanemalone/Desktop/bed bug guru/website/images/skull.png"), auto;
+  }
+
+h1 {
+  font-size: 36px;
+  color: rgb(126, 62, 126);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    font-size: 18px;
+    color: rgb(75, 170, 41);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+pre {
+  color:aliceblue;
+}
+
+.text {
+  color: lightgreen;
+}
+
+.link {
+  width:125px;
+  height:auto;
+}
+
+.gallery_photo {
+  width: 400px;
+  height: auto;
+}
+
+#about_page {
+  display:none;
+}
+
+#gallery_page {
+  display:none;
+}
+
+#shows_page {
+  display:none;
+}
+
+#homepage #bbg {
+  width: 110px;
+  height: auto;
+}
+
+#homepage #bbglogo {
+    width:800px;
+    height:auto;
+}
+
+.headerButton {
+  width:245px;
+  height:auto;
+}
+
+#sub {
+  width: 200px;
+  height:auto;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+.spinning {
+  animation: spin 2s infinite ;
+}
+
+@keyframes spin {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(359deg);
+    }
+  }
+
+@media only screen and (max-width: 400px) {
+    #bbg {
+      width: 300px;
+    }
+  }
+  
+  @keyframes slide{
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-1692px, 0, 0);
+    }
+  }
+
+
+/* Add some padding and a grey background color to containers */
+.container {
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+/* Style the input elements and the submit button */
+input[type=text], input[type=submit] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+  
