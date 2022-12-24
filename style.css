@@ -6,13 +6,13 @@ p {
 
 
 body {
-  background: url("/images/film.png") ; 
+  background: url("images/film.png") ; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
     height: 100%;
-    cursor: url("/images/skull.png"), auto;
+    cursor: url("images/skull.png"), auto;
   }
 
 h1 {
