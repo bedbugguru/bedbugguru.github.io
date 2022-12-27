@@ -65,10 +65,15 @@ pre {
   height: auto;
   cursor:pointer;
 }
-
+@media only screen and (min-device-width: 400px) {
+  #homepage #bbglogo {
+      width:80%;
+      height:auto;
+  }
+}
 #homepage #bbglogo {
-    width:58%;
-    height:auto;
+  width:60%;
+  height:auto;
 }
 
 #homepage #banner {
