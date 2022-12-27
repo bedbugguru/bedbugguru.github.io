@@ -65,7 +65,7 @@ pre {
   height: auto;
   cursor:pointer;
 }
-@media only screen and (min-device-width: 400px) {
+@media only screen and (min-device-width: 450px) {
   #homepage #bbglogo {
       width:80%;
       height:auto;
@@ -80,7 +80,13 @@ pre {
   width: 53%;
   height: auto;
 }
-
+@media only screen and (min-device-width: 450px) {
+.headerButton {
+  width:50%;
+  height:auto;
+  cursor:pointer;
+}
+}
 .headerButton {
   width:16%;
   height:auto;
