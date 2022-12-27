@@ -38,11 +38,6 @@ pre {
   color: lightgreen;
 }
 
-.link {
-  width:18%;
-  height:auto;
-}
-
 .gallery_photo {
   width: 400px;
   height: auto;
@@ -59,43 +54,64 @@ pre {
 #shows_page {
   display:none;
 }
-
-#homepage #bbg {
-  width: 10%;
-  height: auto;
-  cursor:pointer;
-}
-@media only screen and (min-device-width: 450px) {
+/* Mobile View */
+@media only screen and (max-width: 800px) {
   #homepage #bbglogo {
       width:80%;
       height:auto;
   }
-}
-#homepage #bbglogo {
-  width:60%;
-  height:auto;
+  #homepage #bbg {
+    width: 15%;
+    height: auto;
+    cursor:pointer;
+  }
+  #homepage #banner {
+    width: 70%;
+    height: auto;
+  }
+  .headerButton {
+    width:32%;
+    height:auto;
+    cursor:pointer;
+  }
+  .link {
+    width:32%;
+    height:auto;
+  }
+  #sub {
+    width: 40%;
+    height:auto;
+  }
 }
 
-#homepage #banner {
-  width: 53%;
-  height: auto;
-}
-@media only screen and (min-device-width: 450px) {
-.headerButton {
-  width:50%;
-  height:auto;
-  cursor:pointer;
-}
-}
-.headerButton {
-  width:16%;
-  height:auto;
-  cursor:pointer;
-}
-
-#sub {
-  width: 30%;
-  height:auto;
+/* Desktop View */
+@media only screen and (min-width: 800px) {
+  #homepage #bbglogo {
+    width:60%;
+    height:auto;
+  }
+  #homepage #bbg {
+    width: 10%;
+    height: auto;
+    cursor:pointer;
+  }
+  #homepage #banner {
+    width: 53%;
+    height: auto;
+  }
+  .headerButton {
+    width:16%;
+    height:auto;
+    cursor:pointer;
+  }
+  #sub {
+    width: 30%;
+    height:auto;
+  }
+  .link {
+    width:18%;
+    height:auto;
+  }
 }
 
 .center {
