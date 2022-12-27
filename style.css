@@ -1,6 +1,6 @@
 p {
     color: whitesmoke;
-    font-size: 12px;
+    font-size: 50%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -25,7 +25,7 @@ h1 {
 }
 
 h2 {
-    font-size: 18px;
+    font-size: 100%;
     color: rgb(75, 170, 41);
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -75,7 +75,7 @@ pre {
     cursor:pointer;
   }
   .link {
-    width:32%;
+    width:50%;
     height:auto;
   }
   #sub {
@@ -131,12 +131,6 @@ pre {
     }
     to {
       transform: rotateY(359deg);
-    }
-  }
-
-@media only screen and (max-width: 400px) {
-    #bbg {
-      width: 300px;
     }
   }
   
