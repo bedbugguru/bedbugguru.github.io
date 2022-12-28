@@ -200,7 +200,7 @@
 
       //Get value
       var email_address = document.getElementById('emailaddy').value;
-
+      alert(email_address);
       db.collection("mailing-list").add({
          email: email_address
          })
