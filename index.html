@@ -51,11 +51,11 @@
          <a href="https://www.instagram.com/bedbugguru/" target="_blank" rel="noreferrer noopener"><img id="ig" alt="instagram" src="images/links/ig.png" class="button link"></a>
       </h2>
       <!-- newsletter signup-->
-      <form action="action_page.php">
+      <form id="signup">
          <div class="center">
             <p></p>
             <h2>subscribe to our newsletter to keep up with what we're doing</h2>
-           <input type="text" placeholder="email address" name="mail" required>
+           <input type="text" id ="emailaddy" placeholder="email address" name="mail" required>
            <input type="image" id="sub" alt="subscribe" src="images/subscribe.png" class="button">
          </div>
        </form>
@@ -99,8 +99,6 @@
          <h2>1/14... gainesville</h2>
          <p>dm/email for info</p>
          <h2>2/23... jacksonville</h2>
-         <p>dm/email for info</p>
-         <h2>2/24... tallahassee</h2>
          <p>dm/email for info</p>
          <h2>2/25... pensacola</h2>
          <p>dm/email for info</p>
@@ -165,12 +163,14 @@
          });
 
       </script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
       <script type="module">
          // Import the functions you need from the SDKs you need
+         import "firebase/firestore";
          import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
          import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
-         // TODO: Add SDKs for Firebase products that you want to use
-         // https://firebase.google.com/docs/web/setup#available-libraries
+         import { getFirestore } from "firebase/firestore";
        
          // Your web app's Firebase configuration
          // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -187,6 +187,33 @@
          // Initialize Firebase
          const app = initializeApp(firebaseConfig);
          const analytics = getAnalytics(app);
+         const db = firebase.firestore();
+
+         // Reference messages collection
+
+         // Listen for form submit
+         document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+      // Submit form
+      function submitForm(e){
+      e.preventDefault();
+
+      //Get value
+      var email_address = document.getElementById('emailaddy').value;
+
+      db.collection("mailing-list").add({
+         email: email_address
+         })
+         .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+         })
+         .catch((error) => {
+            console.error("Error adding document: ", error);
+         });
+      // Clear form
+      document.getElementById('contactForm').reset();
+      }
        </script>
+       
    </body>
 </html>
