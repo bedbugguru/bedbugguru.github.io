@@ -1,5 +1,5 @@
 body {
-  background: url("images/film.png") ; 
+  background: url("images/film.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7,14 +7,14 @@ body {
   background-position: center;
   overflow-x: scroll;
   overflow-y: scroll;
-    height: 100%;
-    cursor: url("images/skull.png"), auto;
-    margin-bottom:50px;
-    height: 100vh;
-  }
+  height: 100%;
+  cursor: url("images/skull.png"), auto;
+  margin-bottom: 50px;
+  height: 100vh;
+}
 
 pre {
-  color:aliceblue;
+  color: aliceblue;
 }
 
 .text {
@@ -22,15 +22,15 @@ pre {
 }
 
 #about_page {
-  display:none;
+  display: none;
 }
 
 #gallery_page {
-  display:none;
+  display: none;
 }
 
 #shows_page {
-  display:none;
+  display: none;
 }
 
 
@@ -39,99 +39,116 @@ pre {
 /* Mobile View */
 @media only screen and (max-width: 800px) {
   #homepage #bbglogo {
-      width:80%;
-      height:auto;
+    width: 80%;
+    height: auto;
   }
+
   #homepage #bbg {
     width: 15%;
     height: auto;
-    cursor:pointer;
+    cursor: pointer;
   }
+
   #homepage #banner {
     width: 70%;
     height: auto;
   }
+
   .headerButton {
-    width:32%;
-    height:auto;
-    cursor:pointer;
+    width: 32%;
+    height: auto;
+    cursor: pointer;
   }
+
   .link {
-    width:50%;
-    height:auto;
+    width: 50%;
+    height: auto;
   }
+ 
   #sub {
     width: 40%;
-    height:auto;
+    height: auto;
   }
+
   .gallery_photo {
     width: 100%;
     height: auto;
-    position:center;
+    position: center;
   }
+
   h1 {
     font-size: 100%;
     color: rgb(126, 62, 126);
     font-family: Arial, Helvetica, sans-serif;
   }
-  
+
   h2 {
-      font-size: 100%;
-      color: rgb(75, 170, 41);
-      font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    color: rgb(75, 170, 41);
+    font-family: Arial, Helvetica, sans-serif;
   }
+
   #selfie {
-    width:80%;
-    height:auto;
+    width: 80%;
+    height: auto;
   }
+
   p {
     color: whitesmoke;
     font-size: 50%;
     font-family: Arial, Helvetica, sans-serif;
-}
-.container {
-  padding-left: 5%;
-  padding-right: 5%;
+  }
+
+  .container {
+    padding-left: 5%;
+    padding-right: 5%;
     background-color: whitesmoke;
     width: 80%;
-      display: inline-block;
-      border: 1px solid rgb(0, 0, 0);
-      box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid rgb(0, 0, 0);
+    box-sizing: border-box;
   }
 }
 
 /* Desktop View */
 @media only screen and (min-width: 800px) {
   #homepage #bbglogo {
-    width:60%;
-    height:auto;
+    width: 51%;
+    height: auto;
   }
+
   #homepage #bbg {
-    width: 10%;
+    width: 7%;
     height: auto;
-    cursor:pointer;
+    cursor: pointer;
   }
+
   #homepage #banner {
-    width: 53%;
+    width: 49%;
     height: auto;
   }
+
   .headerButton {
-    width:16%;
-    height:auto;
-    cursor:pointer;
+    width: 16%;
+    height: auto;
+    cursor: pointer;
   }
+
   #sub {
-    width: 30%;
-    height:auto;
+    width: 28%;
+    height: auto;
   }
+
   .link {
-    width:18%;
-    height:auto;
+    width: 18%;
+    height: auto;
   }
+
   .gallery_photo {
     width: 90%;
     height: auto;
   }
+
   h1 {
     font-size: 24px;
     color: rgb(126, 62, 126);
@@ -139,14 +156,15 @@ pre {
     left: 0px;
     right: 0px;
   }
-  
+
   h2 {
-      font-size: 18px;
-      color: rgb(75, 170, 41);
-      font-family: Arial, Helvetica, sans-serif;
-      left: 0px;
-      right: 0px;
+    font-size: 18px;
+    color: rgb(75, 170, 41);
+    font-family: Arial, Helvetica, sans-serif;
+    left: 0px;
+    right: 0px;
   }
+
   p {
     color: whitesmoke;
     font-size: 12px;
@@ -154,57 +172,59 @@ pre {
     left: 0px;
     right: 0px;
   }
+
   #selfie {
-    width:60%;
-    height:auto;
+    width: 60%;
+    height: auto;
   }
+
   .container {
     padding-left: 5%;
     padding-right: 5%;
-      background-color: whitesmoke;
-      width: 100%;
-        display: inline-block;
-        border: 1px solid rgb(0, 0, 0);
-        box-sizing: border-box;
-    }
-  
+    background-color: whitesmoke;
+    width: 100%;
+    display: inline-block;
+    border: 1px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+  }
+
 }
 
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 .spinning {
-  animation: spin 2s infinite ;
+  animation: spin 2s infinite;
 }
 
 @keyframes spin {
-    from {
-      transform: rotateY(0deg);
-    }
-    to {
-      transform: rotateY(359deg);
-    }
-  }
-  
-  @keyframes slide{
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(-1692px, 0, 0);
-    }
+  from {
+    transform: rotateY(0deg);
   }
 
+  to {
+    transform: rotateY(359deg);
+  }
+}
 
-/* Add some padding and a grey background color to containers */
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-1692px, 0, 0);
+  }
+}
 
 
 /* Style the input elements and the submit button */
-input[type=text], input[type=submit] {
+input[type=text],
+input[type=submit] {
   width: 100%;
   padding: 12px;
   margin: 8px 0;
@@ -213,21 +233,23 @@ input[type=text], input[type=submit] {
   box-sizing: border-box;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
+input[type=text],
+input[type=submit] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
-
-/* Create two equal columns that sits next to each other */
-.column {
-  flex: 50%;
-  padding: 0 4px;
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
+input[type=text],
+input[type=submit] {
+  width: 100%;
+  padding: 6px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 #footer {
