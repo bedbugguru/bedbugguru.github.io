@@ -80,7 +80,17 @@
          on their debut album.
          </h3>
          </div>
-         
+      </div>
+
+      <!-- about page for instagram bc it sucks-->
+      <div id="fake_about" class="center">
+         <img id="selfie" alt="selfie" src="images/IMG_4669.JPG" class="center">
+         <br>
+         <h2>jake faiella - visuals</h2>
+         <h2>jake knoechel - guitar</h2>
+         <h2>shane malone - guitar + vox</h2>
+         <h2>kendall mason - bass + vox</h2>
+         <h2>cleburne wilson - drums</h2>
       </div>
       
       <!-- gallery page-->
@@ -154,6 +164,7 @@
          var toggleHome = document.getElementById("homepage");
          var toggleGallery = document.getElementById("gallery_page");
          var toggleShows = document.getElementById("shows_page");
+         var toggleIgAbout = document.getElementById("fake_about");
 
          _bbg.addEventListener("click", () => {
             if (window.confirm('just trust me ...')) {
@@ -164,10 +175,18 @@
             alert("no merch online yet... dm us on instagram @bedbugguru :)");
          });
          _about.addEventListener("click", () => {
-            toggleAbout.style.display = "block";
-            toggleHome.style.display = "none";
-            toggleGallery.style.display = "none";
-            toggleShows.style.display = "none";
+            var isInstagram = navigator.userAgent.match(/instagram/i);
+               toggleHome.style.display = "none";
+               toggleGallery.style.display = "none";
+               toggleShows.style.display = "none";
+            if (isInstagram) {
+               toggleIgAbout.style.display = "block";
+               toggleAbout.style.display = "none";
+            }
+            else {
+               toggleAbout.style.display = "block";
+               toggleIgAbout.style.display = "none";
+            }
          });
 
          _home.addEventListener("click", () => {
@@ -175,6 +194,7 @@
             toggleHome.style.display = "block";
             toggleGallery.style.display = "none";
             toggleShows.style.display = "none";
+            toggleIgAbout.style.display = "none";
          });
 
          _gallery.addEventListener("click", () => {
@@ -182,6 +202,7 @@
             toggleHome.style.display = "none";
             toggleGallery.style.display = "block";
             toggleShows.style.display = "none";
+            toggleIgAbout.style.display = "none";
          });
 
          _shows.addEventListener("click", () => {
@@ -189,6 +210,7 @@
             toggleHome.style.display = "none";
             toggleGallery.style.display = "none";
             toggleShows.style.display = "block";
+            toggleIgAbout.style.display = "none";
          });
 
       </script>
