@@ -1,11 +1,12 @@
 body {
   background: url("images/film.png");
   -webkit-background-size: cover;
+  background-color: black;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-position: center;
-  overflow-x: scroll;
+  overflow-x:hidden;
   overflow-y: scroll;
   height: 100%;
   cursor: url("images/skull.png"), auto;
