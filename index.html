@@ -124,8 +124,6 @@
       <div id="shows_page" class="center">
          <h2>1/13... orlando</h2>
          <p>dm/email for info</p>
-         <h2>1/14... gainesville</h2>
-         <p>dm/email for info</p>
          <h2>2/23... jacksonville</h2>
          <p>dm/email for info</p>
          <h2>2/25... pensacola</h2>
@@ -198,6 +196,7 @@
          import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
          import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
          import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
+         import { getAuth, signInAnonymously, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
        
          // Your web app's Firebase configuration
          // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -213,6 +212,16 @@
        
          // Initialize Firebase
          const app = initializeApp(firebaseConfig);
+         const auth = getAuth();
+         signInAnonymously(auth)
+         .then(() => {
+            // Signed in..
+         })
+         .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ...
+         });
          const analytics = getAnalytics(app);
          const db = getFirestore(app);
 
@@ -220,20 +229,25 @@
          // Listen for form submit
          _submit.addEventListener("click", async (e) => {
             e.preventDefault();
-            var email_address = document.getElementById("address").value;
-            var _name = document.getElementById("name").value;
-            addDoc(collection(db, "mailing-list"), {
-               name: _name,
-               email: email_address
-               })
-               .then((docRef) => {
-                  console.log("Document written with ID: ", docRef.id);
-               })
-               .catch((error) => {
-                  console.error("Error adding document: ", error);
-               });
-               document.getElementById('signup').reset();
-               alert("cool thanks " + _name + " we're totally not going to sell your email to hackers >:)");
+            if (document.getElementById("address").value != "") {
+               var email_address = document.getElementById("address").value;
+               var _name = document.getElementById("name").value;
+               addDoc(collection(db, "mailing-list"), {
+                  name: _name,
+                  email: email_address
+                  })
+                  .then((docRef) => {
+                     console.log("Document written with ID: ", docRef.id);
+                  })
+                  .catch((error) => {
+                     console.error("Error adding document: ", error);
+                  });
+                  document.getElementById('signup').reset();
+                  alert("thanks " + _name);
+               }
+               else {
+                  alert("please enter your information");
+               }
          });
        </script>
        
