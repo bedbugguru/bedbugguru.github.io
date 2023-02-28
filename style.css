@@ -71,6 +71,16 @@ pre {
     height: auto;
   }
 
+  #poster {
+    width: 70%;
+    height: auto;
+  }
+
+  #continue {
+    width: 30%;
+    height: auto;
+  }
+
   .gallery_photo {
     width: 100%;
     height: auto;
@@ -131,6 +141,16 @@ pre {
 
   #homepage #banner {
     width: 49%;
+    height: auto;
+  }
+
+  #poster {
+    width: 50%;
+    height: auto;
+  }
+
+  #continue {
+    width: 15%;
     height: auto;
   }
 
