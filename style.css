@@ -10,6 +10,7 @@ body {
     overflow-y: scroll;
     cursor: url("images/skull.png"), auto;
     padding-bottom: 50px; 
+    zoom: 175%;
     margin: 0;
 }
 
