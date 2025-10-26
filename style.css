@@ -19,9 +19,7 @@ img {
 
 /* Base style for all header and social links */
 .button {
-    /* Set a maximum width so they don't get huge on desktop screens */
     max-width: 100px; 
-    /* Use margin for spacing */
     margin: 5px 10px; 
 }
 
@@ -30,12 +28,20 @@ img {
     text-align: center;
     display: flex;
     justify-content: center; /* Centers the group of buttons */
-    flex-wrap: wrap; /* Allows buttons to wrap to the next line on small screens */
+    flex-wrap: wrap; 
 }
 
 /* Hide the shows page by default. The JavaScript will toggle visibility. */
 #shows_page {
     display: none;
+}
+
+/* NEW STYLE FOR THE SHOW FLYER */
+.show-flyer {
+    /* Limit max width on desktop so it's not too huge */
+    max-width: 500px; 
+    /* Add some vertical margin for separation */
+    margin-bottom: 20px; 
 }
 
 
@@ -45,21 +51,25 @@ img {
     
     /* Header Buttons Fix: Force a clean 2x2 layout instead of 3-then-1. */
     .header-nav a {
-        width: 40%; /* Each link takes up 40% of the space */
-        margin: 5px 5px; /* Reduce margin to fit two side-by-side */
+        width: 40%; 
+        margin: 5px 5px; 
     }
     
     /* Social Links Fix: Make them larger and easier to tap. */
     .social-links img {
-        /* This will allow 3 links to fit side-by-side on most phones */
         width: 30%; 
-        max-width: 70px; /* Prevents them from getting too big */
-        margin: 5px 2px; /* Tighten up the spacing */
+        max-width: 70px; 
+        margin: 5px 2px; 
     }
 
     /* Main Logo Images: Ensure they don't take up the full width, keeping space for margins */
     #bbglogo, #banner {
         width: 90%; 
         height: auto;
+    }
+
+    /* Adjust flyer size for small screens */
+    .show-flyer {
+        max-width: 90%; /* Take up most of the screen width */
     }
 }
