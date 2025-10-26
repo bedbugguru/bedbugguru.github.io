@@ -69,9 +69,9 @@ pre {
     color: whitesmoke; 
 }
 
-/* Merch Page Layout */
+/* Merch Page Layout FIX: Give the Shopify container space */
 #collection-component-1761456625660 {
-    width: 100%;
+    width: 90%; /* Increase container width slightly */
     max-width: 1200px; 
     margin: 0 auto;
     color: whitesmoke !important; 
