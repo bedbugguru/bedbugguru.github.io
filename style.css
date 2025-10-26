@@ -1,50 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+/* --- Base Styles (For all devices) --- */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>bed bug guru</title>
-    <meta name="description" content="This is the official website for San Francisco based rock band bed bug guru.">
-    
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
-</head>
+/* Ensures all images are fluid (responsive) and maintain aspect ratio */
+img {
+    max-width: 100%;
+    height: auto; 
+}
 
-<body>
+/* Styles moved from the HTML <style> block */
+.button:hover {
+    opacity: 0.8;
+}
+.center {
+    text-align: center;
+}
+.bandtext {
+    color: black;
+}
+
+/* Base style for all header and social links */
+.button {
+    /* Set a maximum width so they don't get huge on desktop screens */
+    max-width: 100px; 
+    /* Use margin for spacing */
+    margin: 5px 10px; 
+}
+
+/* Use Flexbox for the header navigation to easily control alignment and wrapping */
+.header-nav {
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Centers the group of buttons */
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line on small screens */
+}
+
+/* Hide the shows page by default. The JavaScript will toggle visibility. */
+#shows_page {
+    display: none;
+}
+
+
+/* --- Mobile Optimization (Screen width up to 600px) --- */
+
+@media screen and (max-width: 600px) {
     
-    <nav class="header-nav">
-        <a href="#" id="home-link"><img alt="home" src="images/headings/home.png" class="headerButton button"></a>
-        <a href="#" id="shows-link"><img alt="shows" src="images/headings/shows.png" class="headerButton button"></a>
-        <a onclick="window.confirm('wait till the album comes out'); return false;" style="cursor: pointer;"><img id="merch" alt="merch" src="images/headings/merch.png" class="headerButton button"></a>
-        <a href="mailto:bedbuggurumgmt@gmail.com" target="_blank" rel="noreferrer noopener"><img id="contact" alt="contact" src="images/headings/contact.png" class.headerButton button"></a>
-    </nav>
-
-    <hr>
-
-    <div id="homepage">
-        <img id="bbg" alt="bbg" src="images/butterfree.png" class="center spinning">
-        <img id="bbglogo" alt="bbglogo" src="images/bbglogo.png" class="center">
-        <img id="banner" alt="banner" src="images/bbg_banner.png" class="center">
-        
-        <div class="social-links center">
-            <a href="https://bedbugguru.bandcamp.com/" target="_blank" rel="noreferrer noopener"><img id="bc" alt="bandcamp" src="images/links/bc.png" class="button link"></a>
-            <a href="https://open.spotify.com/artist/2s6lHLuKKreqcTwVEyCNMY?si=XM_CmVfJTvGwl5jBwhnxIg" target="_blank" rel="noreferrer noopener"><img id="spotify" alt="spotify" src= "images/links/spotify.png" class="button link"> </a>
-            <a href="https://music.apple.com/us/artist/bed-bug-guru/1629092367" target="_blank" rel="noreferrer noopener"><img id="app" alt="apple music" src="images/links/apple.png" class="button link"></a>
-            <a href="https://www.youtube.com/channel/UCsXCQJ92VphwA2nVXMEA1rQ" target="_blank" rel="noreferrer noopener"><img id="yt" alt="youtube" src="images/links/yt.png" class="button link"></a>
-            <a href="https://www.instagram.com/bedbugguru/" target="_blank" rel="noreferrer noopener"><img id="ig" alt="instagram" src="images/links/ig.png" class="button link"></a>
-        </div>
-    </div> <div id="shows_page" class="center">
-        <a href="https://www.songkick.com/artists/10289853" class="songkick-widget" data-theme="dark" data-track-button="on" data-detect-style="off" data-background-color="rgb(0,0,0,1)" data-font-color="rgb(255,255,255,1)" data-button-bg-color="rgb(255,255,255,1)" data-button-text-color="rgb(0,0,0,1)" data-locale="en" data-other-artists="on" data-share-button="on" data-country-filter="on" data-rsvp="on" data-request-show="on" data-past-events="off" data-past-events-offtour="off" data-remind-me="off" style="display: none;"></a>
-        <script src='//widget-app.songkick.com/injector/10289853'></script>
-    </div>
-
-    <footer class="footer">
-        <p class="center">©BBG 2025 all rights reserved except the ones we don't have</p>
-    </footer>
+    /* Header Buttons Fix: Force a clean 2x2 layout instead of 3-then-1. */
+    .header-nav a {
+        width: 40%; /* Each link takes up 40% of the space */
+        margin: 5px 5px; /* Reduce margin to fit two side-by-side */
+    }
     
-    <script src="script.js"></script>
-</body>
-</html>
+    /* Social Links Fix: Make them larger and easier to tap. */
+    .social-links img {
+        /* This will allow 3 links to fit side-by-side on most phones */
+        width: 30%; 
+        max-width: 70px; /* Prevents them from getting too big */
+        margin: 5px 2px; /* Tighten up the spacing */
+    }
+
+    /* Main Logo Images: Ensure they don't take up the full width, keeping space for margins */
+    #bbglogo, #banner {
+        width: 90%; 
+        height: auto;
+    }
+}
