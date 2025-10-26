@@ -1,46 +1,32 @@
-/* ------------------------------------- */
-/* --- Core Global Styles (Restored) --- */
-/* ------------------------------------- */
-
 body {
-    /* RESTORED: Film background, covering the viewport */
     background: url("images/film.png");
-    background-color: black; /* Acts as a fallback color */
+    background-color: black; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-position: center;
-    
-    /* FIX: Removed height: 100vh and added margin: 0 to allow footer to flow to the bottom */
     overflow-x: hidden;
     overflow-y: scroll;
     cursor: url("images/skull.png"), auto;
-    
-    /* Ensures space for the footer at the very bottom */
     padding-bottom: 50px; 
     margin: 0;
 }
 
-/* Base style for all images: fluid and maintain aspect ratio */
 img {
     max-width: 100%;
     height: auto; 
 }
 
-/* Base styles for all image links (nav and social) */
 .button {
-    /* FIX: Set a low max-width globally to prevent them from becoming huge on desktop */
     max-width: 70px; 
-    margin: 10px; /* Generous spacing */
+    margin: 10px; 
 }
 
-/* Hover effects */
 .button:hover {
     opacity: 0.8;
 }
 
-/* RESTORED: Text colors */
 pre {
     color: aliceblue;
 }
@@ -49,7 +35,33 @@ pre {
     color: lightgreen;
 }
 
-/* Centering utility class */
+#shows_page, #merch_page {
+    display: none;
+    padding-top: 30px;
+    color: whitesmoke; 
+}
+
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.product-card {
+    border: 1px solid #333;
+    padding: 15px;
+    width: 250px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.show-flyer {
+    max-width: 500px; 
+    margin-bottom: 20px; 
+}
+
 .center {
     display: block;
     margin-left: auto;
@@ -57,7 +69,6 @@ pre {
     text-align: center; 
 }
 
-/* Animation */
 .spinning {
     animation: spin 2s infinite;
 }
@@ -71,93 +82,30 @@ pre {
     }
 }
 
-/* Hidden state for toggled pages */
-#shows_page, #merch_page {
-    display: none;
-    padding-top: 30px;
-    color: whitesmoke; 
-}
-
-/* Style for the show flyer image */
-.show-flyer {
-    max-width: 500px; 
-    margin-bottom: 20px; 
-}
-
-/* Header navigation layout using Flexbox */
 .header-nav {
     display: flex;
-    justify-content: center; /* FIX: Guarantees center alignment */
+    justify-content: center; 
     flex-wrap: wrap; 
     margin: 15px 0;
 }
 
-/* FIX: Footer is no longer fixed, allowing it to flow below content */
 .footer {
-    /* Removed position: fixed, bottom: 0, etc. */
     text-align: center;
     padding: 10px 0;
     width: 100%;
-    /* Ensure the copyright text is legible */
     color: rgba(255, 255, 255, 0.6); 
     font-size: 10px;
 }
 
-
 /* ---------------------------------------------------- */
-/* --- Desktop View (Fixes Applied: min-width 800px) --- */
+/* --- Desktop View (min-width 800px) --- */
 /* ---------------------------------------------------- */
 
 @media only screen and (min-width: 800px) {
+    
+    .header-nav a img {
+        max-width: 150px;
+    }
 
-    /* FIX: Override original desktop sizing with global max-width (70px) 
-       This prevents links from being "huge" and the nav buttons from being "awkwardly small." 
-       The global .button max-width property handles the small size for streaming links and nav. */
-
-    /* Image Sizing - Use original percentages for content images */
     #homepage #bbglogo { width: 51%; }
-    #homepage #bbg { width: 7%; }
-    #homepage #banner { width: 49%; }
-    
-    /* RESTORED: Text & Font Sizing */
-    h1 { font-size: 24px; color: rgb(126, 62, 126); font-family: Arial, Helvetica, sans-serif; }
-    h2 { font-size: 18px; color: rgb(75, 170, 41); font-family: Arial, Helvetica, sans-serif; }
-    h3 { font-size: 18px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; }
-    p { font-size: 12px; color: whitesmoke; font-family: Arial, Helvetica, sans-serif; }
-}
-
-
-/* ---------------------------------------------------- */
-/* --- Mobile View (Fixes Applied: max-width 800px) --- */
-/* ---------------------------------------------------- */
-
-@media only screen and (max-width: 800px) {
-
-    /* FIX: Header and Social Links all in one row, centered, and small. 
-       We target the wrapper <a> tag to control its width contribution. */
-    .header-nav a {
-        /* FIX: Give the link wrapper a small size so 4 fit side-by-side */
-        width: 20%; 
-        min-width: 60px; /* Ensure they don't get tiny */
-        margin: 5px; 
-    }
-
-    /* FIX: Streaming links use the same improved sizing as the header buttons (via the .button class) */
-    .social-links .link {
-        width: 20%;
-        min-width: 60px;
-        margin: 5px;
-    }
-    
-    /* RESTORED: Content Image Sizing */
-    #homepage #bbglogo { width: 80%; }
-    #homepage #bbg { width: 15%; }
-    #homepage #banner { width: 70%; }
-    
-    /* RESTORED: Text & Font Sizing */
-    h1 { font-size: 100%; }
-    h2 { font-size: 100%; }
-    h3 { font-size: 70%; }
-    a { font-size: 100%; }
-    p { font-size: 50%; }
-}
+    #homepage #bb
