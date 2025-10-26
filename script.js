@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Get references to your page containers
+    const _bbg = document.querySelector("#bbg");
     const homepage = document.getElementById('homepage');
     const showsPage = document.getElementById('shows_page');
     const merchPage = document.getElementById('merch_page');
@@ -57,5 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
     merchLink.addEventListener('click', (e) => {
         e.preventDefault();
         showPage(merchPage);
+    });
+
+    _bbg.addEventListener("click", () => {
+        if (window.confirm('just trust me ...')) {
+            window.open('https://www.youtube.com/watch?v=ekIMGAmgXSI', '_blank');
+        }
     });
 });
