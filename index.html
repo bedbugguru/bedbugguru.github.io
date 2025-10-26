@@ -31,8 +31,6 @@
       <img id="home" alt="home" src="images/headings/home.png" class="headerButton button">
       <img id="shows" alt="shows" src="images/headings/shows.png" class="headerButton button">
       <a onclick="window.confirm('wait till the album comes out'); return false;" style="cursor: pointer;"><img id="merch" alt="merch" src="images/headings/merch.png" class="headerButton button"></a><a href="mailto:bedbuggurumgmt@gmail.com" target="_blank" rel="noreferrer noopener"><img id="contact" alt="contact" src="images/headings/contact.png" class="headerButton button"></a>  
-      <img id="gallery" alt="gallery" src="images/headings/gallery.png" class="headerButton button">
-      <img id="about" alt="about" src="images/headings/about.png" class="headerButton button"> 
       </div>
       <hr>
 
@@ -50,53 +48,6 @@
          <a href="https://www.youtube.com/channel/UCsXCQJ92VphwA2nVXMEA1rQ" target="_blank" rel="noreferrer noopener"><img id="yt" alt="youtube" src="images/links/yt.png" class="button link"></a>
          <a href="https://www.instagram.com/bedbugguru/" target="_blank" rel="noreferrer noopener"><img id="ig" alt="instagram" src="images/links/ig.png" class="button link"></a>
       </h2>
-        
-      <!-- newsletter signup-->
-      <form id="signup">
-         <div class="center">
-            <p></p>
-            <h2>subscribe to our newsletter to keep up with what we're doing</h2>
-            <input type="text" id ="name" placeholder="name" name="name">
-           <input type="text" id ="address" placeholder="email address" name="mail" required>
-           <input type="image" id="sub" alt="subscribe" src="images/subscribe.png">
-         </div>
-       </form>
-      </div>
-
-      <!-- about page-->
-      <div id="about_page" class="center">
-         <img class="gallery_photo" src="images/gallery/photo4.png">
-         <div class="container">
-         <h3 class="bandtext">
-         bed bug guru was formed in early 2022 by Jake Knoechel, Shane Malone, and Cleburne Wilson in Gainesville, Florida. 
-            The band is currently based in San Francisco and is excited to release their debut album in late 2025.
-         </h3>
-         </div>
-      </div>
-      
-      <!-- gallery page-->
-   <div id ="gallery_page" class="center">
-         <img class="gallery_photo" src="images/gallery/photo1.png">
-         <img class="gallery_photo" src="images/gallery/photo7.png">
-         <img class="gallery_photo" src="images/gallery/photo4.png">
-         <img class="gallery_photo" src="images/gallery/photo5.png">
-         <img class="gallery_photo" src="images/gallery/photo6.png">
-         <img class="gallery_photo" src="images/gallery/photo3.png">
-         <img class="gallery_photo" src="images/gallery/photo13.png">
-         <img class="gallery_photo" src="images/gallery/photo14.png">
-         <img class="gallery_photo" src="images/gallery/photo16.png">
-         <img class="gallery_photo" src="images/gallery/photo18.png">
-         <img class="gallery_photo" src="images/gallery/photo19.png">
-         <img class="gallery_photo" src="images/gallery/photo24.png">
-         <img class="gallery_photo" src="images/gallery/photo25.png">
-         <img class="gallery_photo" src="images/gallery/photo27.png">
-         <img class="gallery_photo" src="images/gallery/photo29.png">
-         <img class="gallery_photo" src="images/gallery/photo30.png">
-         <img class="gallery_photo" src="images/gallery/photo31.png">
-         <img class="gallery_photo" src="images/gallery/photo32.png">
-         <img class="gallery_photo" src="images/gallery/photo33.png">
-         <img class="gallery_photo" src="images/gallery/photo34.png">
-     </div>
 
       <!-- shows page-->
       <div id="shows_page" class="center">
@@ -104,21 +55,17 @@
       </div>
 
       <footer class="footer">
-         <p class="center">©BBG 2023 all rights reserved except the ones we don't have</p>
+         <p class="center">©BBG 2025 all rights reserved except the ones we don't have</p>
         </footer>
       <!-- JavaScript -->
       <script>
          // Identify images
          const _bbg = document.querySelector("#bbg");
          const _merch = document.querySelector("#merch");
-         const _gallery = document.querySelector("#gallery");
-         const _about = document.querySelector("#about");
          const _home = document.querySelector("#home");
          const _shows = document.querySelector("#shows");
 
-         var toggleAbout = document.getElementById("about_page");
          var toggleHome = document.getElementById("homepage");
-         var toggleGallery = document.getElementById("gallery_page");
          var toggleShows = document.getElementById("shows_page");
 
          _bbg.addEventListener("click", () => {
@@ -126,26 +73,12 @@
                window.open('https://www.youtube.com/watch?v=ekIMGAmgXSI', '_blank');
             };
          });
-         _about.addEventListener("click", () => {
-               toggleHome.style.display = "none";
-               toggleGallery.style.display = "none";
-               toggleShows.style.display = "none";
-               toggleAbout.style.display = "block";
-         });
 
          _home.addEventListener("click", () => {
-            toggleAbout.style.display = "none";
             toggleHome.style.display = "block";
-            toggleGallery.style.display = "none";
             toggleShows.style.display = "none";
          });
 
-         _gallery.addEventListener("click", () => {
-            toggleAbout.style.display = "none";
-            toggleHome.style.display = "none";
-            toggleGallery.style.display = "block";
-            toggleShows.style.display = "none";
-         });
 
          _shows.addEventListener("click", () => {
             toggleAbout.style.display = "none";
@@ -153,69 +86,6 @@
             toggleGallery.style.display = "none";
             toggleShows.style.display = "block";
          });
-
-      </script>
-      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-      <script type="module">
-         // Import the functions you need from the SDKs you need
-         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
-         import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
-         import { getAuth, signInAnonymously, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-       
-         // Your web app's Firebase configuration
-         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-         const firebaseConfig = {
-           apiKey: "AIzaSyDpuwRBhX_vSaK61b3fXazFxWOTLPZC3gY",
-           authDomain: "bed-bug-guru.firebaseapp.com",
-           projectId: "bed-bug-guru",
-           storageBucket: "bed-bug-guru.appspot.com",
-           messagingSenderId: "766968198581",
-           appId: "1:766968198581:web:3985a6de3ef9bde5e155fc",
-           measurementId: "G-7Z9GM8NM5L"
-         };
-       
-         // Initialize Firebase
-         const app = initializeApp(firebaseConfig);
-         const auth = getAuth();
-         signInAnonymously(auth)
-         .then(() => {
-            // Signed in..
-         })
-         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ...
-         });
-         const analytics = getAnalytics(app);
-         const db = getFirestore(app);
-
-         let _submit = document.getElementById('sub');
-         // Listen for form submit
-         _submit.addEventListener("click", async (e) => {
-            e.preventDefault();
-            if (document.getElementById("address").value != "") {
-               var email_address = document.getElementById("address").value;
-               var _name = document.getElementById("name").value;
-               addDoc(collection(db, "mailing-list"), {
-                  name: _name,
-                  email: email_address
-                  })
-                  .then((docRef) => {
-                     console.log("Document written with ID: ", docRef.id);
-                  })
-                  .catch((error) => {
-                     console.error("Error adding document: ", error);
-                  });
-                  document.getElementById('signup').reset();
-                  alert("thanks " + _name);
-               }
-               else {
-                  alert("please enter your information");
-               }
-         });
-       </script>
        
    </body>
 </html>
