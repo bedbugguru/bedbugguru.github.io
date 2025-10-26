@@ -1,75 +1,196 @@
-/* --- Base Styles (For all devices) --- */
+/* ------------------------------------- */
+/* --- Core Global Styles (Restored) --- */
+/* ------------------------------------- */
 
-/* Ensures all images are fluid (responsive) and maintain aspect ratio */
+body {
+    /* RESTORED: Film background, covering the viewport */
+    background: url("images/film.png");
+    background-color: black; /* Acts as a fallback color */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    
+    /* RESTORED: Scroll behavior and cursor */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100vh; /* Use 100vh for full viewport height */
+    cursor: url("images/skull.png"), auto;
+    
+    /* Clean up default margins and add footer space */
+    margin: 0;
+    padding-bottom: 50px; /* Space for the fixed footer */
+}
+
+/* Base style for all images: fluid and maintain aspect ratio */
 img {
     max-width: 100%;
     height: auto; 
 }
 
-/* Styles moved from the HTML <style> block */
-.button:hover {
-    opacity: 0.8;
-}
-.center {
-    text-align: center;
-}
-.bandtext {
-    color: black;
+/* RESTORED: Original text colors */
+pre {
+    color: aliceblue;
 }
 
-/* Base style for all header and social links */
-.button {
-    max-width: 100px; 
-    margin: 5px 10px; 
+.text {
+    color: lightgreen;
 }
 
-/* Use Flexbox for the header navigation to easily control alignment and wrapping */
-.header-nav {
-    text-align: center;
-    display: flex;
-    justify-content: center; /* Centers the group of buttons */
-    flex-wrap: wrap; 
-}
-
-/* Hide the shows page by default. The JavaScript will toggle visibility. */
+/* RESTORED: Hidden state for toggled pages (only #shows_page is currently used in HTML) */
+/* The unused #about_page and #gallery_page declarations are removed. */
 #shows_page {
     display: none;
 }
 
-/* NEW STYLE FOR THE SHOW FLYER */
+/* RESTORED: Centering utility class */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* Removed width: 50%; here to allow images to be truly responsive */
+    text-align: center; /* Added for text/inline content centering */
+}
+
+/* ---------------------------------- */
+/* --- Utilities and Animations --- */
+/* ---------------------------------- */
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.spinning {
+    animation: spin 2s infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(359deg);
+    }
+}
+
+/* Removed unused @keyframes slide */
+
+/* Footer styling */
+.footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    flex: 0 0 auto;
+}
+
+
+/* ------------------------------------------ */
+/* --- Responsive & Structural Styles --- */
+/* ------------------------------------------ */
+
+/* Improved header navigation layout using Flexbox */
+.header-nav {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    margin-bottom: 15px; /* Add space below the header */
+}
+
+/* Style for the show flyer image */
 .show-flyer {
-    /* Limit max width on desktop so it's not too huge */
     max-width: 500px; 
-    /* Add some vertical margin for separation */
     margin-bottom: 20px; 
 }
 
 
-/* --- Mobile Optimization (Screen width up to 600px) --- */
+/* ---------------------------------------------------- */
+/* --- Desktop View (Restored & Integrated: min-width 800px) --- */
+/* ---------------------------------------------------- */
 
-@media screen and (max-width: 600px) {
+@media only screen and (min-width: 800px) {
+
+    /* RESTORED: Image Sizing */
+    #homepage #bbglogo { width: 51%; }
+    #homepage #bbg { width: 7%; }
+    #homepage #banner { width: 49%; }
+    #poster { width: 50%; }
+    #continue { width: 15%; }
+    #sub { width: 28%; }
+    #selfie { width: 60%; }
     
-    /* Header Buttons Fix: Force a clean 2x2 layout instead of 3-then-1. */
-    .header-nav a {
-        width: 40%; 
+    /* RESTORED: Button/Link Sizing */
+    .headerButton { width: 16%; }
+    .link { width: 18%; }
+
+    /* RESTORED: Gallery Photo Sizing (Still included if you re-add a gallery) */
+    .gallery_photo { width: 90%; }
+    
+    /* RESTORED: Text & Font Sizing */
+    h1 { font-size: 24px; color: rgb(126, 62, 126); font-family: Arial, Helvetica, sans-serif; }
+    h2 { font-size: 18px; color: rgb(75, 170, 41); font-family: Arial, Helvetica, sans-serif; }
+    h3 { font-size: 18px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; }
+    p { font-size: 12px; color: whitesmoke; font-family: Arial, Helvetica, sans-serif; }
+
+    /* RESTORED: Container Styles */
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+        background-color: whitesmoke;
+        width: 100%;
+        display: inline-block;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* --- Mobile View (Restored & Integrated: max-width 800px) --- */
+/* ---------------------------------------------------- */
+
+@media only screen and (max-width: 800px) {
+
+    /* RESTORED: Image Sizing */
+    #homepage #bbglogo { width: 80%; }
+    #homepage #bbg { width: 15%; }
+    #homepage #banner { width: 70%; }
+    #poster { width: 70%; }
+    #continue { width: 30%; }
+    #sub { width: 40%; }
+    #selfie { width: 80%; }
+    
+    /* **OVERRIDE**: Header buttons use the new Flexbox/40% width for cleaner 2x2 layout */
+    .headerButton { 
+        width: 40%; /* Ensures 2-per-row layout */
         margin: 5px 5px; 
     }
     
-    /* Social Links Fix: Make them larger and easier to tap. */
-    .social-links img {
-        width: 30%; 
-        max-width: 70px; 
-        margin: 5px 2px; 
-    }
+    /* RESTORED: Link Sizing (Social links) */
+    /* This overrides the .link rules from the last version, favoring your original sizing */
+    .link { width: 50%; } 
+    
+    /* RESTORED: Gallery Photo Sizing */
+    .gallery_photo { width: 100%; }
+    
+    /* RESTORED: Text & Font Sizing */
+    h1 { font-size: 100%; color: rgb(126, 62, 126); font-family: Arial, Helvetica, sans-serif; }
+    h2 { font-size: 100%; color: rgb(75, 170, 41); font-family: Arial, Helvetica, sans-serif; }
+    h3 { font-size: 70%; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; }
+    a { font-size: 100%; color: rgb(75, 170, 41); font-family: Arial, Helvetica, sans-serif; }
+    p { font-size: 50%; color: whitesmoke; font-family: Arial, Helvetica, sans-serif; }
 
-    /* Main Logo Images: Ensure they don't take up the full width, keeping space for margins */
-    #bbglogo, #banner {
-        width: 90%; 
-        height: auto;
-    }
-
-    /* Adjust flyer size for small screens */
-    .show-flyer {
-        max-width: 90%; /* Take up most of the screen width */
+    /* RESTORED: Container Styles */
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+        background-color: whitesmoke;
+        width: 80%;
+        display: inline-block;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
     }
 }
