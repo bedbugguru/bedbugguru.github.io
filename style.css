@@ -12,15 +12,14 @@ body {
     background-size: cover;
     background-position: center;
     
-    /* RESTORED: Scroll behavior and cursor */
+    /* FIX: Removed height: 100vh and added margin: 0 to allow footer to flow to the bottom */
     overflow-x: hidden;
     overflow-y: scroll;
-    height: 100vh; /* Use 100vh for full viewport height */
     cursor: url("images/skull.png"), auto;
     
-    /* Clean up default margins and add footer space */
+    /* Ensures space for the footer at the very bottom */
+    padding-bottom: 50px; 
     margin: 0;
-    padding-bottom: 50px; /* Space for the fixed footer */
 }
 
 /* Base style for all images: fluid and maintain aspect ratio */
@@ -29,7 +28,19 @@ img {
     height: auto; 
 }
 
-/* RESTORED: Original text colors */
+/* Base styles for all image links (nav and social) */
+.button {
+    /* FIX: Set a low max-width globally to prevent them from becoming huge on desktop */
+    max-width: 70px; 
+    margin: 10px; /* Generous spacing */
+}
+
+/* Hover effects */
+.button:hover {
+    opacity: 0.8;
+}
+
+/* RESTORED: Text colors */
 pre {
     color: aliceblue;
 }
@@ -38,29 +49,15 @@ pre {
     color: lightgreen;
 }
 
-/* RESTORED: Hidden state for toggled pages (only #shows_page is currently used in HTML) */
-/* The unused #about_page and #gallery_page declarations are removed. */
-#shows_page {
-    display: none;
-}
-
-/* RESTORED: Centering utility class */
+/* Centering utility class */
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    /* Removed width: 50%; here to allow images to be truly responsive */
-    text-align: center; /* Added for text/inline content centering */
+    text-align: center; 
 }
 
-/* ---------------------------------- */
-/* --- Utilities and Animations --- */
-/* ---------------------------------- */
-
-.button:hover {
-    opacity: 0.8;
-}
-
+/* Animation */
 .spinning {
     animation: spin 2s infinite;
 }
@@ -74,30 +71,11 @@ pre {
     }
 }
 
-/* Removed unused @keyframes slide */
-
-/* Footer styling */
-.footer {
-    position: fixed;
-    height: 50px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
-    flex: 0 0 auto;
-}
-
-
-/* ------------------------------------------ */
-/* --- Responsive & Structural Styles --- */
-/* ------------------------------------------ */
-
-/* Improved header navigation layout using Flexbox */
-.header-nav {
-    display: flex;
-    justify-content: center; 
-    flex-wrap: wrap; 
-    margin-bottom: 15px; /* Add space below the header */
+/* Hidden state for toggled pages */
+#shows_page, #merch_page {
+    display: none;
+    padding-top: 30px;
+    color: whitesmoke; 
 }
 
 /* Style for the show flyer image */
@@ -106,91 +84,80 @@ pre {
     margin-bottom: 20px; 
 }
 
+/* Header navigation layout using Flexbox */
+.header-nav {
+    display: flex;
+    justify-content: center; /* FIX: Guarantees center alignment */
+    flex-wrap: wrap; 
+    margin: 15px 0;
+}
+
+/* FIX: Footer is no longer fixed, allowing it to flow below content */
+.footer {
+    /* Removed position: fixed, bottom: 0, etc. */
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    /* Ensure the copyright text is legible */
+    color: rgba(255, 255, 255, 0.6); 
+    font-size: 10px;
+}
+
 
 /* ---------------------------------------------------- */
-/* --- Desktop View (Restored & Integrated: min-width 800px) --- */
+/* --- Desktop View (Fixes Applied: min-width 800px) --- */
 /* ---------------------------------------------------- */
 
 @media only screen and (min-width: 800px) {
 
-    /* RESTORED: Image Sizing */
+    /* FIX: Override original desktop sizing with global max-width (70px) 
+       This prevents links from being "huge" and the nav buttons from being "awkwardly small." 
+       The global .button max-width property handles the small size for streaming links and nav. */
+
+    /* Image Sizing - Use original percentages for content images */
     #homepage #bbglogo { width: 51%; }
     #homepage #bbg { width: 7%; }
     #homepage #banner { width: 49%; }
-    #poster { width: 50%; }
-    #continue { width: 15%; }
-    #sub { width: 28%; }
-    #selfie { width: 60%; }
-    
-    /* RESTORED: Button/Link Sizing */
-    .headerButton { width: 16%; }
-    .link { width: 18%; }
-
-    /* RESTORED: Gallery Photo Sizing (Still included if you re-add a gallery) */
-    .gallery_photo { width: 90%; }
     
     /* RESTORED: Text & Font Sizing */
     h1 { font-size: 24px; color: rgb(126, 62, 126); font-family: Arial, Helvetica, sans-serif; }
     h2 { font-size: 18px; color: rgb(75, 170, 41); font-family: Arial, Helvetica, sans-serif; }
     h3 { font-size: 18px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; }
     p { font-size: 12px; color: whitesmoke; font-family: Arial, Helvetica, sans-serif; }
-
-    /* RESTORED: Container Styles */
-    .container {
-        padding-left: 5%;
-        padding-right: 5%;
-        background-color: whitesmoke;
-        width: 100%;
-        display: inline-block;
-        border: 1px solid rgb(0, 0, 0);
-        box-sizing: border-box;
-    }
 }
 
 
 /* ---------------------------------------------------- */
-/* --- Mobile View (Restored & Integrated: max-width 800px) --- */
+/* --- Mobile View (Fixes Applied: max-width 800px) --- */
 /* ---------------------------------------------------- */
 
 @media only screen and (max-width: 800px) {
 
-    /* RESTORED: Image Sizing */
+    /* FIX: Header and Social Links all in one row, centered, and small. 
+       We target the wrapper <a> tag to control its width contribution. */
+    .header-nav a {
+        /* FIX: Give the link wrapper a small size so 4 fit side-by-side */
+        width: 20%; 
+        min-width: 60px; /* Ensure they don't get tiny */
+        margin: 5px; 
+    }
+
+    /* FIX: Streaming links use the same improved sizing as the header buttons (via the .button class) */
+    .social-links .link {
+        width: 20%;
+        min-width: 60px;
+        margin: 5px;
+    }
+    
+    /* RESTORED: Content Image Sizing */
     #homepage #bbglogo { width: 80%; }
     #homepage #bbg { width: 15%; }
     #homepage #banner { width: 70%; }
-    #poster { width: 70%; }
-    #continue { width: 30%; }
-    #sub { width: 40%; }
-    #selfie { width: 80%; }
-    
-    /* **OVERRIDE**: Header buttons use the new Flexbox/40% width for cleaner 2x2 layout */
-    .headerButton { 
-        width: 40%; /* Ensures 2-per-row layout */
-        margin: 5px 5px; 
-    }
-    
-    /* RESTORED: Link Sizing (Social links) */
-    /* This overrides the .link rules from the last version, favoring your original sizing */
-    .link { width: 50%; } 
-    
-    /* RESTORED: Gallery Photo Sizing */
-    .gallery_photo { width: 100%; }
     
     /* RESTORED: Text & Font Sizing */
-    h1 { font-size: 100%; color: rgb(126, 62, 126); font-family: Arial, Helvetica, sans-serif; }
-    h2 { font-size: 100%; color: rgb(75, 170, 41); font-family: Arial, Helvetica, sans-serif; }
-    h3 { font-size: 70%; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; }
-    a { font-size: 100%; color: rgb(75, 170, 41); font-family: Arial, Helvetica, sans-serif; }
-    p { font-size: 50%; color: whitesmoke; font-family: Arial, Helvetica, sans-serif; }
-
-    /* RESTORED: Container Styles */
-    .container {
-        padding-left: 5%;
-        padding-right: 5%;
-        background-color: whitesmoke;
-        width: 80%;
-        display: inline-block;
-        border: 1px solid rgb(0, 0, 0);
-        box-sizing: border-box;
-    }
+    h1 { font-size: 100%; }
+    h2 { font-size: 100%; }
+    h3 { font-size: 70%; }
+    a { font-size: 100%; }
+    p { font-size: 50%; }
 }
