@@ -29,19 +29,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Click event for the "Home" link
     _homeLink.addEventListener("click", (e) => {
-        e.preventDefault(); 
+        e.preventDefault(); // <--- CRITICAL: Prevents the # from being added to the URL
         showPage(toggleHome);
     });
 
     // Click event for the "Shows" link
     _showsLink.addEventListener("click", (e) => {
-        e.preventDefault(); 
+        e.preventDefault(); // <--- CRITICAL: Prevents the # from being added to the URL
         showPage(toggleShows);
     });
     
     // Click event for the "Merch" link
     _merchLink.addEventListener("click", (e) => {
-        e.preventDefault();
+        e.preventDefault(); // <--- CRITICAL: Prevents the # from being added to the URL
         showPage(toggleMerch);
     });
 
