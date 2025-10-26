@@ -1,51 +1,61 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
+    // Get references to your page containers
+    const homepage = document.getElementById('homepage');
+    const showsPage = document.getElementById('shows_page');
+    const merchPage = document.getElementById('merch_page');
 
-    // Identify elements
-    const _bbg = document.querySelector("#bbg");
-    const _homeLink = document.querySelector("#home-link"); 
-    const _showsLink = document.querySelector("#shows-link"); 
-    const _merchLink = document.querySelector("#merch-link"); 
+    // Get references to your navigation links
+    const homeLink = document.getElementById('home-link');
+    const showsLink = document.getElementById('shows-link');
+    const merchLink = document.getElementById('merch-link');
 
-    const toggleHome = document.getElementById("homepage");
-    const toggleShows = document.getElementById("shows_page");
-    const toggleMerch = document.getElementById("merch_page"); 
+    // ----------------------------------------------------
+    // Function to show a page and hide others
+    // ----------------------------------------------------
+    const showPage = (pageToShow) => {
+        // Hide all pages first
+        homepage.style.display = 'none';
+        showsPage.style.display = 'none';
+        merchPage.style.display = 'none';
 
-    // Function to hide all pages and then show the target page
-    const showPage = (targetPage) => {
-        toggleHome.style.display = "none";
-        toggleShows.style.display = "none";
-        toggleMerch.style.display = "none";
-        if (targetPage) {
-            targetPage.style.display = "block";
+        // Show the selected page
+        pageToShow.style.display = 'block';
+
+        // ----------------------------------------------------
+        // 🛠️ THE CRITICAL FIX FOR SHOPIFY 🛠️
+        // If the merch page is being shown, force a layout recalculation.
+        // This is necessary because Shopify calculates its size while the element 
+        // was hidden (display: none), giving it a height of 0.
+        // ----------------------------------------------------
+        if (pageToShow === merchPage) {
+            // A slight delay (10ms) ensures the browser has time to apply 
+            // the 'display: block' before the resize event is fired.
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+            }, 10);
         }
     };
 
-    // Click event for the spinning image
-    _bbg.addEventListener("click", () => {
-        if (window.confirm('just trust me ...')) {
-            window.open('https://www.youtube.com/watch?v=ekIMGAmgXSI', '_blank');
-        }
+    // ----------------------------------------------------
+    // Initial State & Navigation Handlers
+    // ----------------------------------------------------
+
+    // 1. Set initial state (show homepage) and hide others
+    showPage(homepage);
+
+    // 2. Add event listeners to navigation links
+    homeLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage(homepage);
     });
 
-    // Click event for the "Home" link
-    _homeLink.addEventListener("click", (e) => {
-        e.preventDefault(); // <--- CRITICAL: Prevents the # from being added to the URL
-        showPage(toggleHome);
+    showsLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage(showsPage);
     });
 
-    // Click event for the "Shows" link
-    _showsLink.addEventListener("click", (e) => {
-        e.preventDefault(); // <--- CRITICAL: Prevents the # from being added to the URL
-        showPage(toggleShows);
+    merchLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage(merchPage);
     });
-    
-    // Click event for the "Merch" link
-    _merchLink.addEventListener("click", (e) => {
-        e.preventDefault(); // <--- CRITICAL: Prevents the # from being added to the URL
-        showPage(toggleMerch);
-    });
-
-    // Initial load: ensure only the Home page is visible
-    showPage(toggleHome);
-
 });
