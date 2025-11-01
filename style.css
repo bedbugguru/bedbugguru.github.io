@@ -36,18 +36,19 @@ pre {
     color: lightgreen;
 }
 
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center; 
-}
 
-/* Balanced Butterfree size */
+/* Balanced Butterfree size - uses margin: auto for centering */
 #homepage #bbg { 
     max-width: 120px; 
     width: 12%; 
     margin: 20px auto; 
+    display: block;
+}
+
+/* Home page logo and banner centering */
+#homepage #bbglogo, #homepage #banner {
+    display: block;
+    margin: 10px auto; 
 }
 
 .spinning {
@@ -64,16 +65,10 @@ pre {
 }
 
 #merch_page {
-    /* 🚨 CHANGE 1: Switched to Grid */
     display: grid;
     
-    /* Center the *content* of the grid (the products) */
-    justify-content: center;   
-    
-    /* Ensure the max-width and margin: auto are defined 
-       to center the entire merch section */
     max-width: 1200px;
-    margin: 0 auto;            
+    margin: 0 auto;
     
     padding-top: 10px;
     color: whitesmoke;
@@ -82,7 +77,8 @@ pre {
 #shows_page {
     display: none;
     padding-top: 30px;
-    color: whitesmoke; 
+    color: whitesmoke;
+    text-align: center;
 }
 
 .show-flyer {
@@ -160,21 +156,14 @@ pre {
     }
 
     #merch_page {
-        /* 🚨 CHANGE 2: Define 3 equal columns with space */
-        grid-template-columns: repeat(3, 1fr); /* 3 columns, each takes 1 fraction of space */
-        
-        /* 🚨 CHANGE 3: Set guaranteed spacing between all grid items */
-        gap: 30px 15px; /* 30px vertical gap, 15px horizontal gap */
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 30px 15px;
     }
 
-    /* 🚨 CHANGE 4: DELETE the old Flexbox rules for the children */
     #product-container-1,
     #product-container-2,
     #product-container-3 {
-        /* DELETE ALL THE CODE BELOW - Grid is handling layout and spacing */
-        /* width: 30%; */
-        /* margin: 20px 1.66%; */
-        /* box-sizing: border-box; */
+        /* No width/margin rules needed; grid parent handles sizing */
     }
 }
 
@@ -187,13 +176,13 @@ pre {
 
     /* Keep buttons centered and allow them to wrap naturally */
     .header-nav a {
-        min-width: 60px; 
-        margin: 2px 5px;
+        min-width: 60px; 
+        margin: 2px 5px;
     }
     
     .social-links .link {
         min-width: 60px;
-        margin: 2px 5px;
+        margin: 2px 5px;
     }
 
     /* Ensure Butterfree is still smaller on mobile */
@@ -224,8 +213,6 @@ pre {
     #product-container-1,
     #product-container-2,
     #product-container-3 {
-        /* We rely on the global Grid setup to stack them (one column by default). 
-           We just ensure padding/box-sizing are correct. */
         width: 100%;
         padding: 0 5%;
         box-sizing: border-box;
