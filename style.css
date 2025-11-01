@@ -64,14 +64,14 @@ pre {
 }
 
 #merch_page {
-    /* **This replaces the old .center margin auto rule for this element** */
     display: flex;             
     flex-wrap: wrap;           
-    justify-content: center;   /* <-- THIS CENTERS THE PRODUCTS HORIZONTALLY */
+    justify-content: center;   
     
-    /* Optional: Limit the overall width of the content area */
+    /* Ensure the max-width and margin: auto are defined 
+       to center the entire merch section */
     max-width: 1200px;         
-    margin: 0 auto;            /* Ensures the #merch_page container itself is centered */
+    margin: 0 auto;            /* <-- CRUCIAL for centering the parent container */
     
     padding-top: 10px;         
     color: whitesmoke;
@@ -160,10 +160,13 @@ pre {
     #product-container-1,
     #product-container-2,
     #product-container-3 {
-        /* Set each product to be slightly less than a third, 
-         * leaving space for margins */
-        width: 31%;     
-        margin: 15px 1%; /* 1% margin on both sides helps spacing */
+        /* Set width to slightly under 33.33% to safely fit 3 across */
+        width: 30%;             /* Changed from 31% to 30% for safety margin */
+        
+        /* This margin ensures 3 items fit with spacing, and justify-content: center 
+           handles the distribution */
+        margin: 20px 1.66%;      /* 20px top/bottom, 1.66% left/right (total 3.32% spacing) */
+        
         box-sizing: border-box; 
     }
 }
