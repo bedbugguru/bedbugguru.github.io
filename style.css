@@ -10,7 +10,6 @@ body {
     overflow-y: scroll;
     cursor: url("images/skull.png"), auto;
     padding-bottom: 50px; 
-    zoom: 160%;
     margin: 0;
 }
 
@@ -81,6 +80,8 @@ pre {
 .show-flyer {
     max-width: 500px; 
     margin-bottom: 20px; 
+    width: 90%;
+    height: auto;
 }
 
 /* Header navigation - Center buttons, allow wrapping */
@@ -160,15 +161,13 @@ pre {
 
     /* Keep buttons centered and allow them to wrap naturally */
     .header-nav a {
-        width: 23%; 
-        min-width: 60px; 
-        margin: 5px; 
+        min-width: 60px; 
+        margin: 2px 5px;
     }
     
     .social-links .link {
-        width: 18%; 
         min-width: 60px;
-        margin: 5px;
+        margin: 2px 5px;
     }
 
     /* Ensure Butterfree is still smaller on mobile */
