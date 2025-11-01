@@ -21,7 +21,7 @@ img {
 /* Global button max-width is kept small for control */
 .button {
     max-width: 70px; 
-    margin: 10px; 
+    margin: 5px; 
 }
 
 .button:hover {
@@ -100,7 +100,7 @@ pre {
     display: flex;
     justify-content: center; 
     flex-wrap: wrap; 
-    margin: 15px 0;
+    margin: 5px 0;
 }
 
 /* Social Links - Center buttons, allow wrapping */
