@@ -24,9 +24,9 @@
     <hr>
 
     <div id="homepage">
-        <img id="bbg" alt="bbg" src="images/butterfree.png" class="center spinning">
-        <img id="bbglogo" alt="bbglogo" src="images/bbglogo.png" class="center">
-        <img id="banner" alt="new cover image" src="images/newcover.png" class="center">
+        <img id="bbg" alt="bbg" src="images/butterfree.png" class="spinning">
+        <img id="bbglogo" alt="bbglogo" src="images/bbglogo.png">
+        <img id="banner" alt="new cover image" src="images/newcover.png">
         
         <div class="social-links">
             <a href="https://bedbugguru.bandcamp.com/" target="_blank" rel="noreferrer noopener"><img id="bc" alt="bandcamp" src="images/links/bc.png" class="button link"></a>
@@ -51,43 +51,42 @@
     </div>
 
     <footer class="footer">
-        <p class="center">©BBG 2025 all rights reserved except the ones we don't have</p>
+        <p>©BBG 2025 all rights reserved except the ones we don't have</p>
     </footer>
     
     <script type="text/javascript">
     /*<![CDATA[*/
     (function () {
-      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-      if (window.ShopifyBuy) {
-        if (window.ShopifyBuy.UI) {
-          ShopifyBuyInit();
+        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        if (window.ShopifyBuy) {
+            if (window.ShopifyBuy.UI) {
+                ShopifyBuyInit();
+            } else {
+                loadScript();
+            }
         } else {
-          loadScript();
+            loadScript();
         }
-      } else {
-        loadScript();
-      }
-      function loadScript() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = scriptURL;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-        script.onload = ShopifyBuyInit;
-      }
-      function ShopifyBuyInit() {
+        function loadScript() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = scriptURL;
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+            script.onload = ShopifyBuyInit;
+        }
+        function ShopifyBuyInit() {
     var client = ShopifyBuy.buildClient({
-        domain: 'bedbugguru.myshopify.com', // **NOTE: Used your domain, not the sample one.**
+        domain: 'bedbugguru.myshopify.com', 
         storefrontAccessToken: '8aa7a5519dff061d1127e825344c9efc',
     });
     ShopifyBuy.UI.onReady(client).then(function (ui) {
 
-        // --- COMMON OPTIONS (Use the style from your collection script, minus the height fix) ---
         const commonOptions = {
             "product": {
                 "styles": {
                     "product": {
                         "text-align": "center",
-                        "margin-bottom": "40px"
+                        "margin-bottom": "60px" 
                     },
                     "button": {
                         "border-radius": "18px",
@@ -102,29 +101,44 @@
                     "products": { "margin-left": "0", "padding": "0 10px" }
                 }
             },
-            // ... (Include your other sections like modalProduct, cart, toggle here) ...
+            "cart": {
+                "styles": {
+                    "button": {
+                        "border-radius": "18px"
+                    }
+                },
+                "text": {
+                    "total": "Subtotal",
+                    "button": "Checkout"
+                },
+                "popup": false
+            },
+            "toggle": {
+                "styles": {
+                    "count": {
+                        "font-size": "14px"
+                    }
+                }
+            }
         };
 
 
-        // --- PRODUCT 1 (YOUR SPECIFIED FIRST PRODUCT) ---
         ui.createComponent('product', {
-            id: '8242712641636', // Use the ID from your single embed
-            node: document.getElementById('product-container-1'), // Use the new HTML container
+            id: '8242712641636', 
+            node: document.getElementById('product-container-1'), 
             moneyFormat: '%24%7B%7Bamount%7D%7D',
-            options: commonOptions // Apply the centralized styling
+            options: commonOptions 
         });
 
-        // --- PRODUCT 2 (YOUR SPECIFIED SECOND PRODUCT) ---
         ui.createComponent('product', {
-            id: '8242715459684', // *** REPLACE WITH YOUR SECOND PRODUCT ID ***
+            id: '8242715459684', 
             node: document.getElementById('product-container-2'), 
             moneyFormat: '%24%7B%7Bamount%7D%7D',
             options: commonOptions 
         });
 
-        // --- PRODUCT 3 (YOUR SPECIFIED THIRD PRODUCT) ---
         ui.createComponent('product', {
-            id: '8242717327460', // *** REPLACE WITH YOUR THIRD PRODUCT ID ***
+            id: '8242717327460', 
             node: document.getElementById('product-container-3'), 
             moneyFormat: '%24%7B%7Bamount%7D%7D',
             options: commonOptions 
