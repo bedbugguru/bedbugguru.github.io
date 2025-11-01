@@ -64,16 +64,18 @@ pre {
 }
 
 #merch_page {
-    display: flex;             
-    flex-wrap: wrap;           
+    /* 🚨 CHANGE 1: Switched to Grid */
+    display: grid;
+    
+    /* Center the *content* of the grid (the products) */
     justify-content: center;   
     
     /* Ensure the max-width and margin: auto are defined 
        to center the entire merch section */
-    max-width: 1200px;         
-    margin: 0 auto;            /* <-- CRUCIAL for centering the parent container */
+    max-width: 1200px;
+    margin: 0 auto;            
     
-    padding-top: 10px;         
+    padding-top: 10px;
     color: whitesmoke;
 }
 
@@ -157,17 +159,22 @@ pre {
         box-sizing: border-box;
     }
 
+    #merch_page {
+        /* 🚨 CHANGE 2: Define 3 equal columns with space */
+        grid-template-columns: repeat(3, 1fr); /* 3 columns, each takes 1 fraction of space */
+        
+        /* 🚨 CHANGE 3: Set guaranteed spacing between all grid items */
+        gap: 30px 15px; /* 30px vertical gap, 15px horizontal gap */
+    }
+
+    /* 🚨 CHANGE 4: DELETE the old Flexbox rules for the children */
     #product-container-1,
     #product-container-2,
     #product-container-3 {
-        /* Set width to slightly under 33.33% to safely fit 3 across */
-        width: 30%;             /* Changed from 31% to 30% for safety margin */
-        
-        /* This margin ensures 3 items fit with spacing, and justify-content: center 
-           handles the distribution */
-        margin: 20px 1.66%;      /* 20px top/bottom, 1.66% left/right (total 3.32% spacing) */
-        
-        box-sizing: border-box; 
+        /* DELETE ALL THE CODE BELOW - Grid is handling layout and spacing */
+        /* width: 30%; */
+        /* margin: 20px 1.66%; */
+        /* box-sizing: border-box; */
     }
 }
 
@@ -217,8 +224,10 @@ pre {
     #product-container-1,
     #product-container-2,
     #product-container-3 {
-        width: 100%;           /* Full width, causing them to stack */
-        padding: 0 5%;         /* Add padding so they don't hug the edges */
-        box-sizing: border-box; /* Crucial for padding to work inside 100% width */
+        /* We rely on the global Grid setup to stack them (one column by default). 
+           We just ensure padding/box-sizing are correct. */
+        width: 100%;
+        padding: 0 5%;
+        box-sizing: border-box;
     }
 }
