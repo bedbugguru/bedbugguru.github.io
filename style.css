@@ -64,12 +64,16 @@ pre {
 }
 
 #merch_page {
-    display: flex;             /* Use Flexbox for layout control */
-    flex-wrap: wrap;           /* Allows products to wrap to the next line */
-    justify-content: center;   /* Centers the product cards within the page */
-    max-width: 1200px;         /* Keeps the overall content contained */
-    margin: 0 auto;            /* Centers the entire section horizontally */
-    padding-top: 10px;         /* (As previously discussed) */
+    /* **This replaces the old .center margin auto rule for this element** */
+    display: flex;             
+    flex-wrap: wrap;           
+    justify-content: center;   /* <-- THIS CENTERS THE PRODUCTS HORIZONTALLY */
+    
+    /* Optional: Limit the overall width of the content area */
+    max-width: 1200px;         
+    margin: 0 auto;            /* Ensures the #merch_page container itself is centered */
+    
+    padding-top: 10px;         
     color: whitesmoke;
 }
 
@@ -77,27 +81,6 @@ pre {
     display: none;
     padding-top: 30px;
     color: whitesmoke; 
-}
-
-/* Target the new individual containers */
-#product-container-1,
-#product-container-2,
-#product-container-3 {
-    /* Mobile View (fits one per row) */
-    width: 90%;           
-    margin: 10px auto;    /* Spacing between products */
-    min-width: 250px;     /* Ensure the container is at least a certain size */
-}
-
-/* Desktop View: 3 items per row */
-@media only screen and (min-width: 800px) {
-    #product-container-1,
-    #product-container-2,
-    #product-container-3 {
-        width: 33%;      /* Each takes up a third of the row */
-        max-width: 400px; 
-        margin: 20px 0;  /* Spacing */
-    }
 }
 
 .show-flyer {
@@ -173,6 +156,16 @@ pre {
         border: 1px solid rgb(0, 0, 0);
         box-sizing: border-box;
     }
+
+    #product-container-1,
+    #product-container-2,
+    #product-container-3 {
+        /* Set each product to be slightly less than a third, 
+         * leaving space for margins */
+        width: 31%;     
+        margin: 15px 1%; /* 1% margin on both sides helps spacing */
+        box-sizing: border-box; 
+    }
 }
 
 
@@ -216,5 +209,13 @@ pre {
         display: inline-block;
         border: 1px solid rgb(0, 0, 0);
         box-sizing: border-box;
+    }
+
+    #product-container-1,
+    #product-container-2,
+    #product-container-3 {
+        width: 100%;           /* Full width, causing them to stack */
+        padding: 0 5%;         /* Add padding so they don't hug the edges */
+        box-sizing: border-box; /* Crucial for padding to work inside 100% width */
     }
 }
