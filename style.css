@@ -37,15 +37,14 @@ pre {
 }
 
 
-/* Balanced Butterfree size - uses margin: auto for centering */
+/* Home page Stacking Fix: Ensures images stack and are centered */
 #homepage #bbg { 
     max-width: 120px; 
     width: 12%; 
     margin: 20px auto; 
-    display: block;
+    display: block; 
 }
 
-/* Home page logo and banner centering */
 #homepage #bbglogo, #homepage #banner {
     display: block;
     margin: 10px auto; 
@@ -65,27 +64,35 @@ pre {
 }
 
 #merch_page {
-    display: grid;
-    
+    /* Merch Page: Centers the inner wrapper */
     max-width: 1200px;
     margin: 0 auto;
-    
     padding-top: 10px;
     color: whitesmoke;
+}
+
+.merch-grid-wrapper {
+    /* Merch Grid Wrapper: Handles the grid layout */
+    display: grid;
+    justify-content: center;
+    gap: 30px 0; 
 }
 
 #shows_page {
     display: none;
     padding-top: 30px;
     color: whitesmoke;
-    text-align: center;
 }
 
+/* Shows Page Centering Fix: Centers the block image */
 .show-flyer {
     max-width: 500px; 
     margin-bottom: 20px; 
     width: 90%;
     height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Header navigation - Center buttons, allow wrapping */
@@ -155,7 +162,7 @@ pre {
         box-sizing: border-box;
     }
 
-    #merch_page {
+    .merch-grid-wrapper {
         grid-template-columns: repeat(3, 1fr); 
         gap: 30px 15px;
     }
