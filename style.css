@@ -165,6 +165,8 @@ pre {
     .merch-grid-wrapper {
         grid-template-columns: repeat(3, 1fr); 
         gap: 30px 15px;
+        justify-content: center; 
+        justify-items: center;
     }
 
     #product-container-1,
