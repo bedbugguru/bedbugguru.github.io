@@ -46,8 +46,14 @@
 
     <div id="merch_page" class="center">
         
-        <div id='collection-component-1761456625660'></div>
-        </div>
+        <div id="merch_page" class="center">
+    <div id='product-container-1'></div>
+
+    <div id='product-container-2'></div>
+
+    <div id='product-container-3'></div>
+
+    </div>
 
     <footer class="footer">
         <p class="center">©BBG 2025 all rights reserved except the ones we don't have</p>
@@ -74,89 +80,63 @@
         script.onload = ShopifyBuyInit;
       }
       function ShopifyBuyInit() {
-        var client = ShopifyBuy.buildClient({
-          domain: 'bedbugguru.myshopify.com',
-          storefrontAccessToken: '8aa7a5519dff061d1127e825344c9efc',
-        });
-        ShopifyBuy.UI.onReady(client).then(function (ui) {
-          ui.createComponent('collection', {
-            id: '308064485476',
-            node: document.getElementById('collection-component-1761456625660'),
-            moneyFormat: '%24%7B%7Bamount%7D%7D',
-            options: {
-                "product": {
-                    "styles": {
-                        "product": {
-                            "text-align": "center",
-                            "margin-bottom": "10px",
-                            // 🚨 AGGRESSIVE FIX: Ensure each product card is tall enough
-                            "height": "600px" 
-                        },
-                        "button": {
-                            "border-radius": "18px",
-                            "padding-left": "23px",
-                            "padding-right": "23px"
-                        }
+    var client = ShopifyBuy.buildClient({
+        domain: 'bedbugguru.myshopify.com', // **NOTE: Used your domain, not the sample one.**
+        storefrontAccessToken: '8aa7a5519dff061d1127e825344c9efc',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+
+        // --- COMMON OPTIONS (Use the style from your collection script, minus the height fix) ---
+        const commonOptions = {
+            "product": {
+                "styles": {
+                    "product": {
+                        "text-align": "center",
+                        "margin-bottom": "20px" // Reduced from 40px as previously discussed
                     },
-                    "text": {
-                        "button": "Add to cart"
+                    "button": {
+                        "border-radius": "18px",
+                        "padding-left": "23px",
+                        "padding-right": "23px"
                     }
                 },
-                "productSet": {
-                    "styles": {
-                        "products": {
-                            "margin-left": "0",
-                            "padding": "0 10px"
-                        },
-                        // 🚨 AGGRESSIVE FIX: Ensure the image itself has a max-height
-                        "img": {
-                            "max-height": "600px" 
-                        }
-                    }
-                },
-                "modalProduct": {
-                    "contents": {
-                        "img": false,
-                        "imgWithCarousel": true,
-                        "button": false,
-                        "buttonWithQuantity": true
-                    },
-                    "styles": {
-                        "product": {
-                            "@media (min-width: 601px)": {
-                                "max-width": "100%",
-                                "margin-left": "0px",
-                                "margin-bottom": "0px"
-                            }
-                        },
-                        "button": {
-                            "border-radius": "18px",
-                            "padding-left": "23px",
-                            "padding-right": "23px"
-                        }
-                    },
-                    "text": {
-                        "button": "Add to cart"
-                    }
-                },
-                "option": {},
-                "cart": {
-                    "styles": {
-                        "button": {
-                            "border-radius": "18px"
-                        }
-                    },
-                    "text": {
-                        "total": "Subtotal",
-                        "button": "Checkout"
-                    },
-                    "popup": false
-                },
-                "toggle": {}
+                "text": { "button": "Add to cart" }
             },
-          });
+            "productSet": {
+                "styles": {
+                    "products": { "margin-left": "0", "padding": "0 10px" }
+                }
+            },
+            // ... (Include your other sections like modalProduct, cart, toggle here) ...
+        };
+
+
+        // --- PRODUCT 1 (YOUR SPECIFIED FIRST PRODUCT) ---
+        ui.createComponent('product', {
+            id: '8242712641636', // Use the ID from your single embed
+            node: document.getElementById('product-container-1'), // Use the new HTML container
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: commonOptions // Apply the centralized styling
         });
-      }
+
+        // --- PRODUCT 2 (YOUR SPECIFIED SECOND PRODUCT) ---
+        ui.createComponent('product', {
+            id: '8242715459684', // *** REPLACE WITH YOUR SECOND PRODUCT ID ***
+            node: document.getElementById('product-container-2'), 
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: commonOptions 
+        });
+
+        // --- PRODUCT 3 (YOUR SPECIFIED THIRD PRODUCT) ---
+        ui.createComponent('product', {
+            id: '8242717327460', // *** REPLACE WITH YOUR THIRD PRODUCT ID ***
+            node: document.getElementById('product-container-3'), 
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: commonOptions 
+        });
+
+    });
+}
     })();
     /*]]>*/
     </script>
