@@ -11,8 +11,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
 
-    <!-- Big Cartel Merch Grid Styles -->
     <style>
+        /* Sticky Navigation */
+        .header-nav {
+            position: sticky;
+            top: 0;
+            background-color: #000000; /* Keeps the background solid behind buttons */
+            z-index: 1000; /* Ensures it stays on top of all other content */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Big Cartel Merch Grid Styles */
         .merch-grid-wrapper {
             display: flex;
             gap: 30px;
@@ -65,11 +75,11 @@
 
 <body>
     
-    <!-- Navigation -->
+    <!-- Navigation (Updated with Hash Links) -->
     <nav class="header-nav">
-        <a href="#" id="home-link"><img alt="home" src="images/headings/home.png" class="headerButton button"></a>
-        <a href="#" id="shows-link"><img alt="shows" src="images/headings/shows.png" class="headerButton button"></a>
-        <a href="#" id="merch-link"><img id="merch" alt="merch" src="images/headings/merch.png" class="headerButton button"></a>
+        <a href="#home" id="home-link"><img alt="home" src="images/headings/home.png" class="headerButton button"></a>
+        <a href="#shows" id="shows-link"><img alt="shows" src="images/headings/shows.png" class="headerButton button"></a>
+        <a href="#merch" id="merch-link"><img id="merch" alt="merch" src="images/headings/merch.png" class="headerButton button"></a>
         <a href="mailto:bedbuggurumgmt@gmail.com" target="_blank" rel="noreferrer noopener"><img id="contact" alt="contact" src="images/headings/contact.png" class="headerButton button"></a>
     </nav>
 
@@ -79,7 +89,7 @@
     <div id="homepage">
         <img id="bbg" alt="bbg" src="images/butterfree.png" class="spinning">
         <img id="bbglogo" alt="bbglogo" src="images/bbglogo.png">
-        <img id="banner" alt="new cover image" src="bbg_group.png">
+        <img id="banner" alt="new cover image" src="images/newcover.png">
         
         <div class="social-links">
             <a href="https://bedbugguru.bandcamp.com/" target="_blank" rel="noreferrer noopener"><img id="bc" alt="bandcamp" src="images/links/bc.png" class="button link"></a>
@@ -100,21 +110,18 @@
     <div id="merch_page">
         <div class="merch-grid-wrapper">
             
-            <!-- Item 1: Double Scoop Vinyl -->
             <div class="band-merch-card">
                 <img src="https://assets.bigcartel.com/product_images/425018040/double+scoop+album.jpeg?auto=format&fit=max&w=1400" alt="Double Scoop Vinyl" class="merch-img">
                 <div class="merch-title">Double Scoop Vinyl</div>
                 <a href="https://bed-bug-guru.bigcartel.com/product/double-scoop-vinyl" target="_blank" rel="noreferrer noopener" class="bc-buy-btn">View & Buy</a>
             </div>
 
-            <!-- Item 2: BBG Tee 01 -->
             <div class="band-merch-card">
                 <img src="https://assets.bigcartel.com/product_images/425016705/IMG_5161.jpeg?auto=format&fit=max&w=1400" alt="BBG Tee 01" class="merch-img">
                 <div class="merch-title">BBG Tee 01</div>
                 <a href="https://bed-bug-guru.bigcartel.com/product/bbg-tee-01" target="_blank" rel="noreferrer noopener" class="bc-buy-btn">View & Buy</a>
             </div>
 
-            <!-- Item 3: Tote Bag 04 Design -->
             <div class="band-merch-card">
                 <img src="https://assets.bigcartel.com/product_images/425018106/Totes+Mock.png?auto=format&fit=max&w=1400" alt="Tote Bag 04 Design" class="merch-img">
                 <div class="merch-title">Tote Bag 04</div>
