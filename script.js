@@ -1,41 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Grab the navigation buttons
-    const homeLink = document.getElementById('home-link');
-    const showsLink = document.getElementById('shows-link');
-    const merchLink = document.getElementById('merch-link');
-
-    // 2. Grab the page sections
     const homePage = document.getElementById('homepage');
     const showsPage = document.getElementById('shows_page');
     const merchPage = document.getElementById('merch_page');
 
-    // 3. Helper function to hide all sections
-    function hideAllSections() {
+    function updatePageDisplay() {
+        // 1. Hide all sections first
         homePage.style.display = 'none';
         showsPage.style.display = 'none';
         merchPage.style.display = 'none';
+
+        // 2. Read the current URL hash (e.g., "#merch")
+        const hash = window.location.hash;
+
+        // 3. Show the correct section based on the hash
+        if (hash === '#shows') {
+            showsPage.style.display = 'block';
+        } else if (hash === '#merch') {
+            merchPage.style.display = 'block';
+        } else {
+            // Default to the homepage if the hash is empty or unrecognized
+            homePage.style.display = 'block';
+        }
+
+        // 4. Scroll to the top of the page smoothly when switching sections
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 4. Set up click events for each button
-    homeLink.addEventListener('click', (e) => {
-        e.preventDefault(); // Stops the page from jumping
-        hideAllSections();
-        homePage.style.display = 'block'; 
-    });
+    // Run this function once when the page first loads
+    updatePageDisplay();
 
-    showsLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        hideAllSections();
-        showsPage.style.display = 'block';
-    });
-
-    merchLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        hideAllSections();
-        merchPage.style.display = 'block';
-    });
-
-    // 5. Ensure only the homepage is visible when the site first loads
-    hideAllSections();
-    homePage.style.display = 'block';
+    // Run this function every time the URL hash changes (like clicking a nav link)
+    window.addEventListener('hashchange', updatePageDisplay);
 });
