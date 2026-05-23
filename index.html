@@ -10,10 +10,62 @@
     
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+
+    <!-- Big Cartel Merch Grid Styles -->
+    <style>
+        .merch-grid-wrapper {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 40px;
+        }
+        .band-merch-card {
+            border: 1px solid #333; 
+            padding: 15px;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+            background: #1a1a1a; 
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .merch-img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain; 
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background: #000;
+        }
+        .merch-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+        .bc-buy-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 24px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+        .bc-buy-btn:hover {
+            background: #cccccc;
+        }
+    </style>
 </head>
 
 <body>
     
+    <!-- Navigation -->
     <nav class="header-nav">
         <a href="#" id="home-link"><img alt="home" src="images/headings/home.png" class="headerButton button"></a>
         <a href="#" id="shows-link"><img alt="shows" src="images/headings/shows.png" class="headerButton button"></a>
@@ -23,6 +75,7 @@
 
     <hr>
 
+    <!-- Homepage Section -->
     <div id="homepage">
         <img id="bbg" alt="bbg" src="images/butterfree.png" class="spinning">
         <img id="bbglogo" alt="bbglogo" src="images/bbglogo.png">
@@ -30,22 +83,44 @@
         
         <div class="social-links">
             <a href="https://bedbugguru.bandcamp.com/" target="_blank" rel="noreferrer noopener"><img id="bc" alt="bandcamp" src="images/links/bc.png" class="button link"></a>
-            
             <a href="https://open.spotify.com/artist/BED_BUG_GURU_ID" target="_blank" rel="noreferrer noopener"><img id="spotify" alt="spotify" src= "images/links/spotify.png" class="button link"> </a>
-            
             <a href="https://music.apple.com/us/artist/bed-bug-guru/1629092367" target="_blank" rel="noreferrer noopener"><img id="app" alt="apple music" src="images/links/apple.png" class="button link"></a>
             <a href="https://www.youtube.com/channel/UCsXCQJ92VphwA2nVXMEA1rQ" target="_blank" rel="noreferrer noopener"><img id="yt" alt="youtube" src="images/links/yt.png" class="button link"></a>
             <a href="https://www.instagram.com/bedbugguru/" target="_blank" rel="noreferrer noopener"><img id="ig" alt="instagram" src="images/links/ig.png" class="button link"></a>
         </div>
-    </div> <div id="shows_page">
-            <a href="https://www.songkick.com/artists/10289853" class="songkick-widget" data-theme="dark" data-track-button="on" data-detect-style="off" data-background-color="rgb(0,0,0,1)" data-font-color="rgb(255,255,255,1)" data-button-bg-color="rgb(255,255,255,1)" data-button-text-color="rgb(0,0,0,1)" data-locale="en" data-other-artists="on" data-share-button="on" data-country-filter="on" data-rsvp="on" data-request-show="on" data-past-events="on" data-past-events-offtour="off" data-remind-me="off" style="display: none;"></a><script src='//widget-app.songkick.com/injector/10289853'></script>
+    </div> 
+
+    <!-- Shows Section -->
+    <div id="shows_page">
+        <a href="https://www.songkick.com/artists/10289853" class="songkick-widget" data-theme="dark" data-track-button="on" data-detect-style="off" data-background-color="rgb(0,0,0,1)" data-font-color="rgb(255,255,255,1)" data-button-bg-color="rgb(255,255,255,1)" data-button-text-color="rgb(0,0,0,1)" data-locale="en" data-other-artists="on" data-share-button="on" data-country-filter="on" data-rsvp="on" data-request-show="on" data-past-events="on" data-past-events-offtour="off" data-remind-me="off" style="display: none;"></a>
+        <script src='//widget-app.songkick.com/injector/10289853'></script>
     </div>
 
+    <!-- Merch Section -->
     <div id="merch_page">
         <div class="merch-grid-wrapper">
-            <div id='product-container-1'></div>
-            <div id='product-container-2'></div>
-            <div id='product-container-3'></div>
+            
+            <!-- Item 1: Double Scoop Vinyl -->
+            <div class="band-merch-card">
+                <img src="https://assets.bigcartel.com/product_images/425018040/double+scoop+album.jpeg?auto=format&fit=max&w=1400" alt="Double Scoop Vinyl" class="merch-img">
+                <div class="merch-title">Double Scoop Vinyl</div>
+                <a href="https://bed-bug-guru.bigcartel.com/product/double-scoop-vinyl" target="_blank" rel="noreferrer noopener" class="bc-buy-btn">View & Buy</a>
+            </div>
+
+            <!-- Item 2: BBG Tee 01 -->
+            <div class="band-merch-card">
+                <img src="https://assets.bigcartel.com/product_images/425016705/IMG_5161.jpeg?auto=format&fit=max&w=1400" alt="BBG Tee 01" class="merch-img">
+                <div class="merch-title">BBG Tee 01</div>
+                <a href="https://bed-bug-guru.bigcartel.com/product/bbg-tee-01" target="_blank" rel="noreferrer noopener" class="bc-buy-btn">View & Buy</a>
+            </div>
+
+            <!-- Item 3: Tote Bag 04 Design -->
+            <div class="band-merch-card">
+                <img src="https://assets.bigcartel.com/product_images/425018106/Totes+Mock.png?auto=format&fit=max&w=1400" alt="Tote Bag 04 Design" class="merch-img">
+                <div class="merch-title">Tote Bag 04</div>
+                <a href="https://bed-bug-guru.bigcartel.com/product/tote-bag-04-design" target="_blank" rel="noreferrer noopener" class="bc-buy-btn">View & Buy</a>
+            </div>
+
         </div>
     </div>
 
@@ -53,101 +128,6 @@
         <p>©BBG 2026 all rights reserved except the ones we don't have</p>
     </footer>
     
-    <script type="text/javascript">
-    /*<![CDATA[*/
-    (function () {
-        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-        if (window.ShopifyBuy) {
-            if (window.ShopifyBuy.UI) {
-                ShopifyBuyInit();
-            } else {
-                loadScript();
-            }
-        } else {
-            loadScript();
-        }
-        function loadScript() {
-            var script = document.createElement('script');
-            script.async = true;
-            script.src = scriptURL;
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-            script.onload = ShopifyBuyInit;
-        }
-        function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-        domain: 'bedbugguru.myshopify.com', 
-        storefrontAccessToken: '8aa7a5519dff061d1127e825344c9efc',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-
-        const commonOptions = {
-            "product": {
-                "styles": {
-                    "product": {
-                        "text-align": "center",
-                        "margin-bottom": "60px" 
-                    },
-                    "button": {
-                        "border-radius": "18px",
-                        "padding-left": "23px",
-                        "padding-right": "23px"
-                    }
-                },
-                "text": { "button": "Add to cart" }
-            },
-            "productSet": {
-                "styles": {
-                    "products": { "margin-left": "0", "padding": "0 10px" }
-                }
-            },
-            "cart": {
-                "styles": {
-                    "button": {
-                        "border-radius": "18px"
-                    }
-                },
-                "text": {
-                    "total": "Subtotal",
-                    "button": "Checkout"
-                },
-                "popup": false
-            },
-            "toggle": {
-                "styles": {
-                    "count": {
-                        "font-size": "14px"
-                    }
-                }
-            }
-        };
-
-
-        ui.createComponent('product', {
-            id: '8242712641636', 
-            node: document.getElementById('product-container-1'), 
-            moneyFormat: '%24%7B%7Bamount%7D%7D',
-            options: commonOptions 
-        });
-
-        ui.createComponent('product', {
-            id: '8242715459684', 
-            node: document.getElementById('product-container-2'), 
-            moneyFormat: '%24%7B%7Bamount%7D%7D',
-            options: commonOptions 
-        });
-
-        ui.createComponent('product', {
-            id: '8242717327460', 
-            node: document.getElementById('product-container-3'), 
-            moneyFormat: '%24%7B%7Bamount%7D%7D',
-            options: commonOptions 
-        });
-
-    });
-}
-    })();
-    /*]]>*/
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
