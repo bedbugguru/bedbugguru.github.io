@@ -1176,6 +1176,53 @@ main,
     backdrop-filter: blur(6px);
 }
 
+#skull-loader {
+    position: fixed;
+    z-index: 100000;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: all;
+}
+
+#skull-loader.is-done {
+    display: none;
+}
+
+.skull-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 5, 0.3);
+}
+
+#skull {
+    position: relative;
+    margin: 0;
+    line-height: 1;
+    white-space: pre;
+    color: #ececec;
+    letter-spacing: 0;
+    text-shadow: -1px 0 rgba(255, 35, 70, 0.8), 1px 0 rgba(0, 210, 255, 0.8), 0 0 6px rgba(0, 0, 0, 0.9);
+    user-select: none;
+}
+
+.skull-ha {
+    position: absolute;
+    right: 0;
+    bottom: 7vh;
+    left: 0;
+    color: #c6c6c6;
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+html:not(.is-loading) main,
+html:not(.is-loading) .site-footer {
+    transition-delay: 0.2s;
+}
+
 @media (max-width: 820px) and (orientation: portrait) {
     video.bg-loop,
     .bg-fallback {
