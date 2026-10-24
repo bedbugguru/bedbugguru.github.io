@@ -366,10 +366,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!v) return;
     v.muted = true;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) { v.pause(); return; }
     const go = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
     go();
-    ['touchstart', 'pointerdown', 'click', 'scroll'].forEach(e =>
+    ['touchend', 'pointerup', 'click', 'scroll', 'touchmove'].forEach(e =>
         window.addEventListener(e, () => { if (v.paused) go(); }, { once: true, passive: true }));
     document.addEventListener('visibilitychange', () => { if (!document.hidden && v.paused) go(); });
 })();
