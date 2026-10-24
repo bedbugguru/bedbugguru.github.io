@@ -258,8 +258,8 @@ main,
 
 .photo-credit {
     position: absolute;
-    right: 12px;
-    bottom: 10px;
+    right: 6px;
+    bottom: 5px;
     margin: 0;
     color: #f4f4f4;
     font-size: 0.68rem;
@@ -1062,4 +1062,16 @@ main,
         animation: none;
     }
 
+}
+
+.footer-butterfree {
+    display: block;
+    width: 64px;
+    height: auto;
+    margin: 0 auto 10px;
+    animation: butterfree-spin 3s linear infinite;
+}
+
+@keyframes butterfree-spin {
+    to { transform: rotate(360deg); }
 }
