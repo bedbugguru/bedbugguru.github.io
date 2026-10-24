@@ -297,11 +297,34 @@ document.addEventListener('DOMContentLoaded', () => {
             window.history.pushState(null, '', hash);
         }
         const navHeight = directionNav?.getBoundingClientRect().height ?? 0;
-        const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
-        window.scrollTo({
-            top: Math.max(0, targetTop),
-            behavior: 'instant'
-        });
+        const targetTop = Math.max(0, target.getBoundingClientRect().top + window.scrollY - navHeight);
+        smoothScrollTo(targetTop);
+    }
+
+    let scrollFrame = 0;
+    function smoothScrollTo(top) {
+        cancelAnimationFrame(scrollFrame);
+        const start = window.scrollY;
+        const distance = top - start;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion || Math.abs(distance) < 2) {
+            window.scrollTo({ top, left: 0, behavior: 'instant' });
+            return;
+        }
+        const duration = Math.min(1800, 700 + Math.abs(distance) * 0.35);
+        const startTime = performance.now();
+        const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+        const cancel = () => cancelAnimationFrame(scrollFrame);
+        ['wheel', 'touchstart', 'keydown'].forEach(type =>
+            window.addEventListener(type, cancel, { once: true, passive: true }));
+        const step = now => {
+            const t = Math.min(1, (now - startTime) / duration);
+            window.scrollTo({ top: start + distance * ease(t), left: 0, behavior: 'instant' });
+            if (t < 1) {
+                scrollFrame = requestAnimationFrame(step);
+            }
+        };
+        scrollFrame = requestAnimationFrame(step);
     }
 
     directionNav?.querySelectorAll('a[href^="#"]').forEach(link => {
