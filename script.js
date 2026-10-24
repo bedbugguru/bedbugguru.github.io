@@ -316,8 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.location.hash !== hash) {
             window.history.pushState(null, '', hash);
         }
-        const navHeight = directionNav?.getBoundingClientRect().height ?? 0;
-        const targetTop = Math.max(0, target.getBoundingClientRect().top + window.scrollY - navHeight);
+        const targetTop = Math.max(0, target.getBoundingClientRect().top + window.scrollY);
         smoothScrollTo(targetTop);
     }
 

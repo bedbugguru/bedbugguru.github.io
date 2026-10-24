@@ -314,13 +314,13 @@ main,
 .content-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: min(1120px, 100%);
-    min-height: calc(100vh - var(--nav-height));
-    min-height: calc(100svh - var(--nav-height));
+    min-height: 100vh;
+    min-height: 100svh;
     margin: 0 auto;
-    padding: clamp(64px, 9vh, 112px) clamp(20px, 5vw, 64px);
+    padding: calc(var(--nav-height) + 40px) clamp(20px, 5vw, 64px) 64px;
 }
 
 #contact.content-section {
@@ -330,7 +330,6 @@ main,
 }
 
 #music.content-section {
-    padding-top: 56px;
     padding-bottom: 32px;
 }
 
@@ -923,7 +922,7 @@ main,
     }
 
     .content-section {
-        padding: clamp(56px, 8vh, 80px) clamp(20px, 5vw, 32px);
+        padding: calc(var(--nav-height) + 32px) clamp(20px, 5vw, 32px) 56px;
     }
 
     .direction-nav a {
