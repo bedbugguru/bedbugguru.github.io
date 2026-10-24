@@ -647,6 +647,13 @@ main,
     text-transform: uppercase;
 }
 
+.merch-description {
+    margin: 0 0 12px;
+    color: #c1c1c1;
+    font-size: 0.8rem;
+    line-height: 1.65;
+}
+
 .merch-card > a {
     margin-top: auto;
     padding: 8px 0 2px;
