@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 (function () {
-    const v = document.querySelector('.bg-loop');
+    const v = document.querySelector('video.bg-loop');
     if (!v) return;
     v.muted = true;
     v.addEventListener('playing', () => v.classList.add('is-playing'));
@@ -372,4 +372,16 @@ document.addEventListener('DOMContentLoaded', () => {
     ['touchend', 'pointerup', 'click', 'scroll', 'touchmove'].forEach(e =>
         window.addEventListener(e, () => { if (v.paused) go(); }, { once: true, passive: true }));
     document.addEventListener('visibilitychange', () => { if (!document.hidden && v.paused) go(); });
+})();
+
+(function () {
+    const root = document.documentElement;
+    const reveal = () => root.classList.remove('is-loading');
+    const imageReady = img => (img.complete ? Promise.resolve() :
+        new Promise(res => { img.addEventListener('load', res, { once: true }); img.addEventListener('error', res, { once: true }); }));
+    const images = [...document.querySelectorAll('main img, .site-footer img')]
+        .filter(img => img.offsetParent !== null && (img.loading !== 'lazy' || img.getBoundingClientRect().top < innerHeight))
+        .map(imageReady);
+    const fonts = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    Promise.all([fonts, ...images]).then(() => setTimeout(reveal, 60), reveal);
 })();
