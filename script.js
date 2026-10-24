@@ -100,9 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'flyer-card';
             card.hidden = true;
             link.href = imagePath;
-            link.setAttribute('aria-label', `Expand Bed Bug Guru show flyer from ${date}`);
+            link.setAttribute('aria-label', `Expand bed bug guru show flyer from ${date}`);
             image.src = imagePath;
-            image.alt = `Bed Bug Guru show flyer, ${date}`;
+            image.alt = `bed bug guru show flyer, ${date}`;
             image.loading = 'lazy';
             image.draggable = false;
 
