@@ -213,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             audioToggle.setAttribute('aria-label', 'Play background video with audio');
                         } else {
                             videoPlayer.playVideo();
-                            setVideoPlaying(true);
                         }
                     },
                     onStateChange: event => {
@@ -233,6 +232,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         };
+
+        const startOnGesture = () => {
+            if (videoPlayer && !videoPlaying && !prefersReducedMotion.matches) {
+                if (videoMuted) {
+                    videoPlayer.mute();
+                }
+                videoPlayer.playVideo();
+            }
+        };
+        ['touchend', 'pointerup', 'click', 'keydown'].forEach(type =>
+            window.addEventListener(type, startOnGesture, { passive: true }));
 
         audioToggle.addEventListener('click', () => {
             if (!videoPlayer) {
