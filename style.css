@@ -42,7 +42,7 @@ a {
     inset: 0;
     overflow: hidden;
     pointer-events: none;
-    background: var(--black) url("https://i.ytimg.com/vi/NnY4IhHhWPE/maxresdefault.jpg") center / cover no-repeat;
+    background: var(--black) url("images/video-poster.jpg") center / cover no-repeat;
 }
 
 .yt-bg-iframe {
