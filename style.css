@@ -302,6 +302,19 @@ main,
     text-transform: uppercase;
 }
 
+.section-title:has(+ .section-subtitle) {
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    margin: 0 0 clamp(28px, 4vh, 40px);
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .subsection-title {
     margin: clamp(56px, 8vh, 88px) 0 26px;
     color: var(--muted);
