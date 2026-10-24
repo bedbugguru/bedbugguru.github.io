@@ -135,7 +135,8 @@ main,
     justify-content: center;
     gap: clamp(20px, 5vw, 56px);
     padding: 4px 16px;
-    background: transparent;
+    background: rgba(5, 5, 5, 0.92);
+    backdrop-filter: blur(6px);
 }
 
 .streaming-links a,
@@ -175,10 +176,6 @@ main,
 .glitch-hover:focus-visible {
     color: var(--white);
     text-shadow: -1px 0 rgba(255, 35, 70, 0.8), 1px 0 rgba(0, 210, 255, 0.8);
-}
-
-.page-section {
-    scroll-margin-top: var(--nav-height);
 }
 
 .hero {
