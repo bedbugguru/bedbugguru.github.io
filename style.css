@@ -1184,3 +1184,9 @@ main,
         object-fit: cover;
     }
 }
+
+.yt-bg-iframe,
+body.motion-enabled .yt-bg-iframe {
+    opacity: 0;
+    visibility: hidden;
+}
