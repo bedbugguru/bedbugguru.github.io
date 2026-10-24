@@ -216,6 +216,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     },
                     onStateChange: event => {
+                        if (
+                            (event.data === window.YT.PlayerState.UNSTARTED || event.data === window.YT.PlayerState.CUED) &&
+                            !prefersReducedMotion.matches
+                        ) {
+                            setTimeout(() => videoPlayer.playVideo(), 400);
+                        }
                         if (event.data === window.YT.PlayerState.PLAYING) {
                             setVideoPlaying(true);
                         } else if (
@@ -241,6 +247,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 videoPlayer.playVideo();
             }
         };
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                startOnGesture();
+            }
+        });
         ['touchend', 'pointerup', 'click', 'keydown'].forEach(type =>
             window.addEventListener(type, startOnGesture, { passive: true }));
 
