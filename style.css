@@ -45,6 +45,19 @@ a {
     background: var(--black) url("images/video-poster.jpg") center / cover no-repeat;
 }
 
+.bg-loop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%) scale(1.12);
+    object-fit: cover;
+    filter: saturate(1.08) contrast(1.08) brightness(1.0);
+}
+
 .yt-bg-iframe {
     position: absolute;
     top: 50%;
