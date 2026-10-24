@@ -60,7 +60,16 @@ a {
     filter: saturate(1.08) contrast(1.08) brightness(1.0);
 }
 
+video.bg-loop::-webkit-media-controls,
+video.bg-loop::-webkit-media-controls-panel,
+video.bg-loop::-webkit-media-controls-start-playback-button,
+video.bg-loop::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+    -webkit-appearance: none;
+}
+
 video.bg-loop {
+    pointer-events: none;
     opacity: 0;
     transition: opacity 300ms ease;
 }
