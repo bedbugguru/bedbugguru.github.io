@@ -364,8 +364,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const v = document.querySelector('.bg-loop');
     if (!v) return;
     v.muted = true;
+    v.addEventListener('playing', () => v.classList.add('is-playing'));
+    v.addEventListener('pause', () => v.classList.remove('is-playing'));
+    ['loadedmetadata', 'canplay', 'suspend', 'stalled'].forEach(e => v.addEventListener(e, () => { if (v.paused) go(); }));
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const go = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+    function go() { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
     go();
     ['touchend', 'pointerup', 'click', 'scroll', 'touchmove'].forEach(e =>
         window.addEventListener(e, () => { if (v.paused) go(); }, { once: true, passive: true }));

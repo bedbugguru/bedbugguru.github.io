@@ -60,6 +60,15 @@ a {
     filter: saturate(1.08) contrast(1.08) brightness(1.0);
 }
 
+video.bg-loop {
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+video.bg-loop.is-playing {
+    opacity: 1;
+}
+
 .yt-bg-iframe {
     position: absolute;
     top: 50%;
