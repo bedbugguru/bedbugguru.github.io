@@ -140,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
             expanded = !expanded;
             archiveToggle.setAttribute('aria-expanded', String(expanded));
             flyerArchive.classList.toggle('is-collapsed', !expanded);
-            archiveToggleWrap.classList.toggle('is-floating', expanded);
             archiveToggle.textContent = expanded ? 'Show Less ↑' : 'Show More Archives ↓';
             updateVisibleFlyers();
 

@@ -474,18 +474,6 @@ main,
     cursor: url("images/skull.png") 16 16, pointer;
 }
 
-.archive-toggle-wrap.is-floating .archive-toggle-btn {
-    position: fixed;
-    z-index: 1002;
-    bottom: max(18px, env(safe-area-inset-bottom));
-    left: 50%;
-    margin: 0;
-    padding-inline: 16px;
-    background: rgba(5, 5, 5, 0.84);
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
-    transform: translateX(-50%);
-}
-
 .archive-toggle-btn:hover,
 .archive-toggle-btn:focus-visible {
     text-decoration-color: var(--white);
