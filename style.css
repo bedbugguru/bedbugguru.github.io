@@ -149,6 +149,7 @@ main,
     z-index: 1000;
     display: flex;
     min-height: var(--nav-height);
+    margin-top: calc(-1 * var(--nav-height));
     align-items: center;
     justify-content: center;
     gap: clamp(20px, 5vw, 56px);
@@ -199,15 +200,16 @@ main,
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    min-height: calc(100vh - var(--nav-height) - 90px);
-    min-height: calc(100svh - var(--nav-height) - 90px);
+    justify-content: center;
     gap: clamp(12px, 2vh, 20px);
-    padding: clamp(48px, 9vh, 100px) 20px 6px;
+    padding: 15vh 20px 0;
+    padding-top: 15svh;
 }
 
 .hero::after {
-    content: none;
+    content: "";
+    flex: none;
+    height: var(--nav-height);
 }
 
 .hero-logo-button {
@@ -923,7 +925,7 @@ main,
 
     .hero {
         gap: 14px;
-        padding: 28px 14px 0;
+        padding: 23svh 14px 0;
     }
 
     .hero-photo {
@@ -1066,12 +1068,8 @@ main,
 
 .footer-butterfree {
     display: block;
-    width: 64px;
+    width: 96px;
     height: auto;
     margin: 0 auto 10px;
-    animation: butterfree-spin 3s linear infinite;
 }
 
-@keyframes butterfree-spin {
-    to { transform: rotate(360deg); }
-}
