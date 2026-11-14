@@ -31,6 +31,7 @@
         const open = 0;
         const shake = 0;
         const p = dissolveAt ? Math.min(1, (now - dissolveAt) / DISSOLVE_MS) : -1;
+        if (p >= 0) loader.classList.add('show-flyer');
         const rows = [];
         for (let r = 0; r < H; r++) {
             let line = '';
