@@ -1427,14 +1427,6 @@ html.is-inverted {
     text-transform: uppercase;
 }
 
-.tour-intro-notice {
-    font-size: clamp(0.65rem, 2.3vw, 0.78rem);
-    letter-spacing: 0.2em;
-    color: #ffd700;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
-    text-transform: uppercase;
-}
-
 .tour-intro-img {
     width: 100%;
     max-height: min(65vh, 580px);
