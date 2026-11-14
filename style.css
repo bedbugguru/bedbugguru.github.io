@@ -1184,7 +1184,7 @@ main,
     inset: 0;
     display: grid;
     place-items: center;
-    pointer-events: all;
+    pointer-events: none;
 }
 
 #skull-loader.is-done {
