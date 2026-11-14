@@ -517,10 +517,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showTourIntro() {
         tourIntro.classList.add('is-visible');
-        // Auto-dismiss after 6 seconds if user doesn't click
+        // Auto-dismiss after 15 seconds if user doesn't click or dismiss
         setTimeout(() => {
             if (!dismissed) dismiss();
-        }, 6000);
+        }, 15000);
     }
 
     if (document.getElementById('skull-loader')?.classList.contains('is-done')) {
