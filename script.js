@@ -87,7 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
             '2026-05-14_DYVHWX5GE1U_slide2.jpg',
             '2026-08-03_DbkM6mdlJeG_slide1.jpg',
             '2026-09-09_DdFFSLsSqFB_slide1.jpg',
-            '2026-10-07_DeMxSZzpwPP_slide1.jpg'
+            '2026-10-07_DeMxSZzpwPP_slide1.jpg',
+            '2026-12-01_california-is-for-haters-tour.jpg'
         ];
 
         flyerFiles.sort((a, b) => b.localeCompare(a)).forEach(filename => {
@@ -489,3 +490,43 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', setFooterHeight);
     if (window.ResizeObserver) new ResizeObserver(setFooterHeight).observe(footer);
 })();
+
+// Post-skull California Tour flyer intro card with flashing text
+(function initTourIntro() {
+    const tourIntro = document.getElementById('tour-intro');
+    if (!tourIntro) return;
+
+    let dismissed = false;
+    function dismiss() {
+        if (dismissed) return;
+        dismissed = true;
+        tourIntro.classList.add('is-fading');
+        document.documentElement.classList.remove('is-loading');
+        setTimeout(() => {
+            tourIntro.classList.remove('is-visible', 'is-fading');
+            tourIntro.remove();
+        }, 450);
+    }
+
+    tourIntro.addEventListener('click', dismiss);
+    window.addEventListener('keydown', event => {
+        if (event.key === 'Escape' || event.key === 'Enter' || event.key === ' ') {
+            dismiss();
+        }
+    });
+
+    function showTourIntro() {
+        tourIntro.classList.add('is-visible');
+        // Auto-dismiss after 6 seconds if user doesn't click
+        setTimeout(() => {
+            if (!dismissed) dismiss();
+        }, 6000);
+    }
+
+    if (document.getElementById('skull-loader')?.classList.contains('is-done')) {
+        showTourIntro();
+    } else {
+        window.addEventListener('skull-loader-done', showTourIntro, { once: true });
+    }
+})();
+

@@ -54,7 +54,11 @@
         pre.textContent = rows.join('\n');
         if (ha) { ha.textContent = 'loading' + '.'.repeat(1 + (tick >> 3) % 3); ha.style.opacity = p >= 0 ? 0 : '1'; }
         if (p >= 0 && bg) bg.style.opacity = String(Math.max(0, 1 - p * 1.4));
-        if (p >= 1) { loader.classList.add('is-done'); document.documentElement.classList.remove('is-loading'); return; }
+        if (p >= 1) {
+            loader.classList.add('is-done');
+            window.dispatchEvent(new CustomEvent('skull-loader-done'));
+            return;
+        }
         setTimeout(() => requestAnimationFrame(draw), 0);
     }
     requestAnimationFrame(draw);
