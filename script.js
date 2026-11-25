@@ -388,59 +388,6 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollFrame = requestAnimationFrame(step);
     }
 
-    // Seamless scroll inertia / momentum assist for mouse wheels
-    (function initSeamlessScroll() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        // Check for touch device — native momentum is already great on touch
-        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        let targetY = window.scrollY;
-        let currentY = window.scrollY;
-        let animating = false;
-        const friction = 0.88;
-        const stepSize = 1;
-
-        window.addEventListener('wheel', event => {
-            // Only enhance discrete mouse wheels, skip precision trackpads with small deltaMode or ctrlKey (pinch)
-            if (event.ctrlKey || isAutoScrolling) return;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            if (maxScroll <= 0) return;
-
-            // Keep target clamped
-            targetY = Math.max(0, Math.min(maxScroll, (animating ? targetY : window.scrollY) + event.deltaY * 1.15));
-            if (!animating) {
-                animating = true;
-                currentY = window.scrollY;
-                requestAnimationFrame(render);
-            }
-        }, { passive: true });
-
-        function render() {
-            if (isAutoScrolling) {
-                animating = false;
-                return;
-            }
-            const diff = targetY - currentY;
-            if (Math.abs(diff) < 0.5) {
-                currentY = targetY;
-                window.scrollTo(0, currentY);
-                animating = false;
-                return;
-            }
-            currentY += diff * (1 - friction);
-            window.scrollTo(0, currentY);
-            if (animating) {
-                requestAnimationFrame(render);
-            }
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!animating && !isAutoScrolling) {
-                targetY = window.scrollY;
-                currentY = window.scrollY;
-            }
-        }, { passive: true });
-    })();
-
     directionNav?.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', event => {
             const target = document.getElementById(link.hash.slice(1));
