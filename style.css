@@ -769,6 +769,26 @@ main,
     font-size: 1rem;
 }
 
+.contact-email-reveal {
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--white);
+    font: inherit;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: url("images/skull.png") 16 16, pointer;
+    transition: border-color 180ms ease, text-shadow 180ms ease;
+}
+
+.contact-email-reveal:hover,
+.contact-email-reveal:focus-visible {
+    border-color: var(--white);
+    text-shadow: -1px 0 rgba(255, 35, 70, 0.8), 1px 0 rgba(0, 210, 255, 0.8);
+}
+
 .press-photo-carousel {
     display: grid;
     grid-template-areas: "previous stage next";

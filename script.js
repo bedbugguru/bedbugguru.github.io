@@ -477,3 +477,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })();
 
+// Click-to-reveal contact email to deter basic HTML scrapers
+(function initEmailReveal() {
+    const btn = document.querySelector('.contact-email-reveal');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+        const addr = String.fromCharCode(
+            98, 101, 100, 98, 117, 103, 103, 117, 114, 117,
+            54, 54, 54, 64, 103, 109, 97, 105, 108, 46, 99, 111, 109
+        );
+        const link = document.createElement('a');
+        link.className = 'contact-email';
+        link.href = 'mailto:' + addr;
+        link.textContent = addr;
+        btn.replaceWith(link);
+        link.focus();
+    }, { once: true });
+})();
+
