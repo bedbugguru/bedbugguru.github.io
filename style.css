@@ -387,22 +387,6 @@ main,
     text-align: center;
 }
 
-.featured-tour-flyer {
-    width: min(100%, 420px);
-    margin: 0 auto 12px;
-}
-
-.featured-tour-flyer img {
-    aspect-ratio: auto;
-    filter: none;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.85);
-}
-
-.featured-tour-flyer:hover img {
-    filter: none;
-}
-
 .tour-widget a,
 .epk a {
     color: #c6c6c6;
@@ -446,6 +430,22 @@ main,
 .flyer-card:hover img {
     filter: grayscale(0.25) contrast(1.08);
     transform: scale(1.01);
+}
+
+.flyer-card.featured-tour-flyer {
+    width: min(100%, 420px);
+    margin: 0 auto clamp(28px, 4vh, 40px);
+}
+
+.flyer-card.featured-tour-flyer img {
+    aspect-ratio: auto;
+    filter: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.85);
+}
+
+.flyer-card.featured-tour-flyer:hover img {
+    filter: none;
 }
 
 .flyer-viewer {
